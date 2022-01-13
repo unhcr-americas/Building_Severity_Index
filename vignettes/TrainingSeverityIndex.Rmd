@@ -10,7 +10,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
-      countIncrementalSlides: false
+      countIncrementalSlides: true
       ratio: 16:9
     css: ["unhcr-slides.css", "unhcr-slides-fonts.css"]
     includes:
@@ -25,14 +25,23 @@ layout: true
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(knitr)
+# https://github.com/yihui/xaringan/issues/293
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
+
 knitr::opts_chunk$set(cache = TRUE, 
                       warning = FALSE, 
                       message = FALSE, 
                       dpi = 180,
                       fig.retina = 3,
                       fig.width = 6,
-                      fig.asp = 0.618
+                      fig.asp = 0.618,
+                      fig.show = 'hold', 
+                      external = TRUE, 
+                      dev = 'svglite'
                       )
+
 #'UNHCR / Americas Bureau /DIMA  <br> <a href="http://github.com/unhcr-americas"><i class="fa fa-github fa-fw"></i>&nbsp; unhcr-americas</a><br> <br><br> See previous Slides available at <https://unhcr-americas.github.io/reproducibility> <br>'
 
 ```
@@ -70,6 +79,23 @@ Example from JRC Global [INFORM]((http://www.inform-index.org)), an index design
 
 ???
 Depending on the pace of the group, if we do not finish today we will org anise a second session 
+
+
+
+---
+class: inverse, left, middle
+
+# Aid organisations and donors commit to...
+
+See grand bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
+
+>  Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment.
+
+
+???
+
+Notes -
+
 
 ---
 
@@ -420,18 +446,29 @@ Particular things of interest :
  * the percentage of missing data for each indicator, 
  * the percentage of unique values, low data availability and zeroes, 
  * the presence of correlations with denominators, and negative correlations 
+ 
+```{r , comment='#', eval=FALSE}
+# We can change thresholds for flagging outliers and high/low correlations.
+ASEM <- getStats(ASEM, dset = "Raw")
+# view stats within a table
+ASEM$Analysis$Raw$StatTable %>%
+  roundDF() %>%
+  reactable()
+``` 
+ 
 ]
 
 --
 
 .pull-right[
 
-```{r}
+```{r , echo=FALSE, dev='ragg_png', dpi=300}
 # We can change thresholds for flagging outliers and high/low correlations.
 ASEM <- getStats(ASEM, dset = "Raw")
 # view stats within a table
 ASEM$Analysis$Raw$StatTable %>%
   roundDF() %>%
+  head( 6) %>%
   reactable()
 ```
 ]
@@ -441,21 +478,23 @@ ASEM$Analysis$Raw$StatTable %>%
 ???
 
 
-Notes -At this point you may decide to check individual indicators, and some may be added or excluded.
+Notes - Apart from the overall statistics for each indicator, `getStats` also returns a few other things:
+
+* `.$Outliers`, which flags individual outlying points using the relation to the interquartile range
+* `.$Correlations`, which gives a correlation matrix between all indicators in the data set
+* `.$DenomCorrelations`, which gives the correlations between indicators and any denominators
+
+At this point you may decide to check individual indicators, and some may be added or excluded.
 
 ---
 
 ## View missing data by group
- 
-
 
 .pull-left[
- 
 
-```{r}
+```{r , eval=FALSE}
 ASEM <- checkData(ASEM, dset = "Raw")
 
-# 
 ASEM$Analysis$Raw$MissDatByGroup %>%
   roundDF %>%
   reactable::reactable()
@@ -465,6 +504,16 @@ ASEM$Analysis$Raw$MissDatByGroup %>%
 --
 
 .pull-right[
+```{r, fig.width=4, echo=FALSE, dev='ragg_png', dpi=300}
+ASEM <- checkData(ASEM, dset = "Raw")
+ 
+ASEM$Analysis$Raw$MissDatByGroup %>%
+  roundDF %>%
+  head( 6) %>%
+  reactable::reactable()
+
+``` 
+
 ]
 
 
@@ -492,6 +541,21 @@ class: inverse, left, middle
  
 
 To be able to compare small countries with larger ones, you may need to divide indicators by e.g. GDP or population , you can use `denominate()`. The specifications are either made initially in `IndMeta`, or as arguments to `denominate()`. In the case of the ASEM data set, these are included in `IndMeta` so the command is very simple (run `View(ASEMIndMeta)` to see). We will afterwards check the new stats to see what has changed. 
+
+
+```{r, eval=FALSE}
+# create denominated data set
+ASEM <- denominate(ASEM, dset = "Raw")
+
+# get stats of denominated data
+ASEM <- getStats(ASEM, dset = "Denominated")
+
+# view stats table
+ASEM$Analysis$Raw$StatTable %>%
+  roundDF() %>%
+  reactable()
+``` 
+
 ]
 
 --
@@ -500,7 +564,7 @@ To be able to compare small countries with larger ones, you may need to divide i
 
 
 
-```{r}
+```{r, fig.width=4,  echo=FALSE, dev='ragg_png', dpi=300}
 # create denominated data set
 ASEM <- denominate(ASEM, dset = "Raw")
 
@@ -530,24 +594,31 @@ Notes -According to the new table, there are now no high correlations with denom
 .pull-left[
  
 
-Standard approach which Winsorises each indicator up to a specified limit of points, in order to bring skew and kurtosis below specified thresholds. If Winsorisation fails, it applies a log transformation or similar.
+Standard approach which Winsorises each indicator up to a specified limit of points, in order to bring skew and kurtosis below specified thresholds. If Winsorisation fails, it applies a log transformation or similar.Following treatment, it is a good idea to check which indicators were treated and how:
 
-```{r}
+```{r, eval=FALSE}
 ASEM <- treat(ASEM, 
               dset = "Denominated", 
               winmax = 5)
+ASEM$Analysis$Treated$TreatSummary %>%
+  filter(Treatment != "None") %>%
+  reactable()
+
 ``` 
 ]
 
 --
 
 .pull-right[
-
-Following treatment, it is a good idea to check which indicators were treated and how:
-
-```{r}
+ 
+```{r, fig.width=4, echo=FALSE, dev='ragg_png', dpi=300}
+ASEM <- treat(ASEM, 
+              dset = "Denominated", 
+              winmax = 5)
 ASEM$Analysis$Treated$TreatSummary %>%
-  filter(Treatment != "None")
+  filter(Treatment != "None") %>% 
+  head( 6) %>%
+  reactable()
 ```
 
 
@@ -567,22 +638,30 @@ Notes -
 
 
 
-.pull-left[
+.left-column[
  
 Effect of the Winsorisation can be plotted using box plots or violin plots. 
+
+```{r , eval=FALSE}
+COINr::iplotIndDist2(ASEM, 
+  dsets = c("Denominated", "Treated"), 
+  icodes = "Services", 
+  ptype = "Scatter")
+``` 
 ]
 
 --
 
-.pull-right[
+.right-column[
 
 
-```{r}
-iplotIndDist2(ASEM, 
+```{r, fig.width=2.5,   echo=FALSE, dev='ragg_png', dpi=300}
+COINr::iplotIndDist2(ASEM, 
               dsets = c("Denominated", "Treated"), 
               icodes = "Services", 
               ptype = "Scatter")
 ``` 
+
 ]
 
 
@@ -595,12 +674,27 @@ Notes -It is also a good idea to visualise and compare the treated data against 
 
 ## Normalise the data
 
-
+Normalisation is the operation of bringing indicators onto comparable scales so that they can be aggregated more fairly
 
 .pull-left[
  
 
 The next step would be to normalise the data. In the ASEM index we will use a simple min-max normalisation in the $[0, 100]$ interval. 
+
+* `ntype = "minmax"` yields a min-max transformation that scales each indicator onto an interval specified by `npara`, e.g. if `npara$minmax = c(0,10)` the indicators will scale to [0, 10].
+* `ntype = "zscore"` scales the indicator to have a mean and standard deviation specified by `npara`, e.g. if `npara$zscore = c(0,1)` the indicator will have mean zero and standard deviation 1.
+* `ntype = "scaled"` is a general linear transformation defined by `npara$scaled = c(a,b)` which subtracts `a` and divides by `b`.
+* `ntype = "goalposts"` is a capped linear transformation (see the "goalposts" method mentioned previously). Here `npara$goalposts = c(l, u, a)`, where `l` is the lower bound, `u` is the upper bound, and `a` is a scaling parameter.
+* `ntype = "rank"` replaces indicator scores with their corresponding ranks, such that the highest scores have the largest rank values. Ties take average rank values. Here `npara` is not used.
+* `ntype = "borda"` is similar to `ntype = "rank"` but uses Borda scores, which are simply rank values minus one. `npara` is not used.
+* `ntype = "prank"` gives percentile ranks. `npara` is not used.
+* `ntype = "fracmax"` scales each indicator by dividing the value by the maximum value of the indicator. `npara` is not used.
+* `ntype = "dist2ref"` gives the distance to a reference unit, defined by `npara`. For example, if `npara$dist2ref = "AUT"` then all scores will be normalised as the distance to the score of unit "AUT" in each indicator (divided by the range of the indicator). This is useful for benchmarking against a set unit, e.g. a reference country. Scores
+* `ntype = "dist2max"` gives the normalised distance to the maximum of each indicator.
+* `ntype = "dist2targ"` gives the normalised distance to indicator targets. Targets are specified, in the `IndMeta` argument of `assemble()`, and will be in the COIN at `.$Input$IndMeta`. Any scores that exceed the target will be capped at a normalised value of one.
+* `ntype = "custom"` allows to pass a custom function to apply to every indicator. For example, `npara$custom = function(x) {x/max(x, na.rm = T)}` would give the "fracmax" normalisation method described above.
+* `ntype = "none"` the indicator is not normalised (this is mainly useful for adjustments and sensitivity analysis).
+
 ]
 
 --
@@ -631,8 +725,15 @@ Notes -Again, we could visualise and check stats here but to keep things shorter
 .pull-left[
  
 Aggregation type can be:
- * 
- * 
+ * `arith_mean` The most straightforward and widely-used approach to aggregation is the **weighted arithmetic mean**.
+ 
+ * `geom_mean` the **weighted geometric mean** uses the product of the indicators rather than the sum
+
+ * `harm_mean` The [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means) also called **weighted harmonic mean**,  uses the mean of the reciprocals of the indicators. It is the the least compensatory of the the three means, even less so than the geometric mean. It is often used for taking the mean of rates and ratios.
+
+  * `median` The *weighted median* is defined by ordering indicator values, then picking the value which has half of the assigned weight above it, and half below it.
+
+ * `copeland` The [Copeland method](https://en.wikipedia.org/wiki/Copeland%27s_method) is based pairwise comparisons between units, calculated from an *outranking matrix* 
 ]
 
 --
@@ -789,11 +890,36 @@ Notes -Recall here that because we have plotted a "Raw" indicator against the in
 
 ## Correlation analysis on the normalised data 
 
+
+
+.left-column[
+ 
+
 As indicators have had their directions reversed where appropriate, how the consistency of the sustainability pillars is then affected? 
 
-```{r}
-plotCorr(ASEM, dset = "Aggregated", icodes = "Sust", aglevs = 2, pval = 0)
-```
+```{r , eval=FALSE}
+COINr::plotCorr(ASEM, 
+        dset = "Aggregated", 
+        icodes = "Sust", 
+        aglevs = 2, 
+        pval = 0)
+``` 
+]
+
+--
+
+.right-column[
+
+
+```{r, fig.width=4,   echo=FALSE, dev='ragg_png', dpi=300}
+COINr::plotCorr(ASEM, dset = "Aggregated", 
+                icodes = "Sust", 
+                aglevs = 2, 
+                pval = 0)
+``` 
+
+]
+ 
 
 ???
 
@@ -844,9 +970,12 @@ Once again we see a fairly clear divide between Asia and Europe in terms of P2P 
 
 ## Understand the effective weights of each indicator
 
-A sometimes under-appreciated fact is that the weight of an indicator in the final index is due to its own weight, plus the weight of all its parents, as well as the number of indicators and aggregates in each group. For example, an equally-weighted group of two indicators will each have a higher weight (0.5) than an equally weighted group of ten indicators (0.1), and this applies to all aggregation levels.
+A sometimes under-appreciated fact is that the weight of an indicator in the final index is due to its own weight, plus the weight of all its parents, as well as the number of indicators and aggregates in each group. 
+.left-column[
 
-```{r}
+For example, an equally-weighted group of two indicators will each have a higher weight (0.5) than an equally weighted group of ten indicators (0.1), and this applies to all aggregation levels.
+
+```{r, eval=FALSE}
 #  `effectiveWeight()` gives effective weights for all levels. We can check the indicator level by filtering:
 EffWts <- effectiveWeight(ASEM)
 # Filter the maximum and minimum effective weights and which indicators are involved:
@@ -854,8 +983,21 @@ EffWts <- effectiveWeight(ASEM)
 #   filter(AgLevel == 1) %>%
 #   filter(EffectiveWeight %in% c(min(IndWts$EffectiveWeight), max(IndWts$EffectiveWeight)))
 
-plotframework(ASEM)
+COINr::plotframework(ASEM)
 ```
+ 
+]
+
+--
+
+.right-column[
+
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+COINr::plotframework(ASEM)
+```
+]
+
+
 
 ???
 
@@ -890,7 +1032,7 @@ ASEM_NoPolitical <- regen(ASEM_NoPolitical)
 Now we need to compare the two alternative indexes:
 
 ```{r}
-compTable(ASEM, ASEM_NoPolitical, dset = "Aggregated", isel = "Index",
+COINr::compTable(ASEM, ASEM_NoPolitical, dset = "Aggregated", isel = "Index",
           COINnames = c("Original", "NoPolitical"))
 ```
 ???
@@ -929,14 +1071,34 @@ class: inverse, left, middle
 
 ## Index & Sub Dimensions
 
+
+
+.left-column[
+ 
+
 We can now visualize our results. A good way at the index level is a stacked bar chart.
 
-```{r}
-iplotBar(ASEM, dset = "Aggregated", 
+```{r, eval=FALSE}
+COINr::iplotBar(ASEM, dset = "Aggregated", 
          isel = "Index", 
          aglev = 4, 
          stack_children = T)
 ```
+ 
+]
+
+--
+
+.right-column[
+
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+COINr::iplotBar(ASEM, dset = "Aggregated", 
+         isel = "Index", 
+         aglev = 4, 
+         stack_children = T)
+```
+]
+ 
 ???
 
 Notes -
@@ -946,13 +1108,31 @@ Notes -
 
 ## Sub Indices Interactions
 
+.left-column[
+ 
  
 
-```{r}
-iplotIndDist2(ASEM, 
+```{r, eval=FALSE}
+COINr::iplotIndDist2(ASEM, 
+    dsets = "Aggregated", 
+    icodes = "Index")
+```
+ 
+]
+
+--
+
+.right-column[
+
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+COINr::iplotIndDist2(ASEM, 
               dsets = "Aggregated", 
               icodes = "Index")
 ```
+]
+ 
+ 
+ 
 
 ???
 
@@ -963,10 +1143,28 @@ Notes -
 
 ## Display the index on a Map
 
- 
-```{r}
-iplotMap(ASEM, dset = "Aggregated", isel = "Conn")
+.left-column[
+
+```{r, eval=FALSE}
+COINr::iplotMap(ASEM, 
+    dset = "Aggregated", 
+    isel = "Conn")
 ```
+ 
+]
+
+--
+
+.right-column[
+
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+COINr::iplotMap(ASEM, 
+                dset = "Aggregated", 
+                isel = "Conn")
+```
+]
+ 
+ 
 
 ???
 
@@ -978,7 +1176,8 @@ Notes -
 ## Present summary table.
 
 ```{r}
-getResults(ASEM, tab_type = "Summary") %>%
+COINr::getResults(ASEM, tab_type = "Summary") %>%
+  head(7)%>%
   knitr::kable()
 ```
 
@@ -996,12 +1195,11 @@ Get tables to present (the highest levels of aggregation are the first columns, 
 
 ```{r, eval=F}
 # Write full results table to COIN
-getResults(ASEM, tab_type = "FullWithDenoms", out2 = "COIN")
+COINr::getResults(ASEM, tab_type = "FullWithDenoms", out2 = "COIN")
 
 # Export entire COIN to Excel
-coin2Excel(ASEM, "ASEM_results.xlsx")
+COINr::coin2Excel(ASEM, "ASEM_results.xlsx")
 ```
-
 
 ???
 
@@ -1012,7 +1210,7 @@ class: inverse, left, middle
 
 # Conclusion. Reproducibility to ensure transparency
 
- * Strictly Use "curated & published" data for your sub-indicators
+ * Strictly Use "curated & published" data for your sub-indicators - Data should be available on [HDX](https://data.humdata.org)
  
  * Put Code into github to document your process - the data structure required for the packages allows for better discoverability!
  

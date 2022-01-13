@@ -74,6 +74,23 @@ Example from JRC Global [INFORM]((http://www.inform-index.org)), an index design
 ???
 Depending on the pace of the group, if we do not finish today we will org anise a second session 
 
+
+
+---
+class: inverse, left, middle
+
+# Aid organisations and donors commit to...
+
+See grand bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
+
+&gt;  Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment.
+
+
+???
+
+Notes -
+
+
 ---
 
 
@@ -424,12 +441,7 @@ Particular things of interest :
  * the percentage of missing data for each indicator, 
  * the percentage of unique values, low data availability and zeroes, 
  * the presence of correlations with denominators, and negative correlations 
-]
-
---
-
-.pull-right[
-
+ 
 
 ```r
 # We can change thresholds for flagging outliers and high/low correlations.
@@ -439,9 +451,15 @@ ASEM$Analysis$Raw$StatTable %&gt;%
   roundDF() %&gt;%
   reactable()
 ```
+ 
+]
 
-<div id="htmlwidget-d6507512ee5e7cc48400" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d6507512ee5e7cc48400">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Indicator":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET"],"Min":[7.23,1.38,0.13,0.17,0,0,0,1,0,1,1,1.77,175,0.3,0,0.05,0.12,0.08,0.02,2.07,0.99,0,0,0,0.01,5.5,0,28,82,35.76,0.01,53.48,0.3,2.58,0.33,0,0.88,2.01,8,1.1,0,21,0.3,4.86,2.81,19.67,-0.68,0.08,0.6],"Max":[1919.19,657.11,75.6,30.21,10601.75,992,10.53,1754,1,46,92,445,96337,2771.7,9.57,74.47,82.57,10.93,21.49,4.23,210.82,21.17,122,110.18,94.8,28.6,100,100,329,43.19,64.92,192.45,22.12,38.38,31.85,22.7,2.62,37.6,87,9.8,1824,89,1.03,43.55,247.98,421.39,7.58,4.23,42.1],"Mean":[289.66,128.98,12.53,6.56,1577.42,124.53,2.46,794.84,0.75,23.92,69.18,64.08,16340.33,333.58,1.45,10,15.06,2.48,9.31,3.41,38.62,11.98,23.61,16.23,10.03,14.29,75.64,70.86,198.22,40.91,22.66,106.08,6.71,16.02,5.95,2.44,1.34,21.95,38.43,5.39,220.49,57.37,0.82,24.4,62.95,140.48,3.22,1.5,12.59],"Median":[142.61,54.07,6.1,4.69,259.22,45,1.6,1140.5,1,30,79,33.2,7731,112.6,0.58,3.3,9.2,1.4,9.1,3.42,25.65,12.69,18,6.91,1.14,14.6,91,75,197,42.52,17.17,96.63,5.94,15.02,4.98,0.4,1.25,23.35,28,5.1,66,57,0.86,23.7,52.09,128.46,3.53,1.29,10.9],"Q.5":[8.86,4.26,0.37,0.39,6.35,0,0.68,2.45,0,6.5,17,4.02,296,3.82,0.02,0.39,0.69,0.16,0.06,2.54,2.05,0,0,0,0.03,6.93,4.5,40.5,91,37.03,2.13,59.53,0.45,4.2,1.21,0,0.89,8.52,11.5,2,1,29,0.57,9.66,18.68,24.8,0,0.14,4],"Q.25":[44.06,15.74,2.21,1.33,46.98,0,1.6,117.25,0.5,17,61,13.55,1724,23.7,0.13,1.21,3.17,0.62,4.78,2.99,6.77,9.09,8.5,1.2,0.38,10.95,65.25,52,163.5,38.55,9.13,78.39,4.29,11,2.68,0,1.1,16.84,20.5,3.6,22.5,40.5,0.8,18.1,34.83,76.31,1.5,0.7,7],"Q.75":[353.43,199.02,17.15,7.87,1588.93,155.5,1.86,1185,1,30,81,69.55,20205,437.6,1.89,11.8,17.36,4.05,14.15,3.81,46.13,16.8,32,22.92,12.6,16.9,98.35,85,234,42.75,33.78,128.52,8.78,18.78,6.56,1.1,1.48,28.38,55.5,6.8,187.5,75,0.9,30.78,82.03,189.72,4.9,2.2,15.3],"Q.95":[814.12,494.76,44.4,23.62,7260.44,357,9.04,1389.4,1,30.5,87.5,250.5,67515,1315.3,6.36,40.14,55.82,8.05,19.31,4.2,142.58,20.56,68.5,59.05,39.3,22.42,100,100,286.5,43.1,58.54,172.64,15.11,33.17,15.24,17.91,2.08,34.1,84.5,8.45,1028.5,85,0.95,39.39,131.03,277.94,6.23,3.21,27.7],"IQ.range":[309.38,183.28,14.94,6.54,1541.95,155.5,0.26,1067.75,0.5,13,20,56,18481,413.9,1.77,10.58,14.19,3.43,9.36,0.82,39.36,7.71,23.5,21.72,12.22,5.95,33.1,33,70.5,4.2,24.65,50.13,4.49,7.78,3.88,1.1,0.38,11.54,35,3.2,165,34.5,0.1,12.68,47.2,113.41,3.4,1.5,8.3],"Std.dev":[388.2,161.49,15.79,7.37,2587.11,181.95,2.38,550.4,0.44,9.38,22.17,86.55,23136.9,526.71,2.09,15.02,18.36,2.53,6.35,0.54,46.72,6.84,24.82,22.67,17.51,5.11,32.15,20.06,58.63,2.38,17.2,35.45,4.55,8.21,5.63,5.51,0.37,8.52,24.42,2.15,387.49,19.8,0.14,9.72,43.65,84.89,2.04,1.02,7.74],"Skew":[2.65,1.7,2.1,1.81,2.02,2.69,2.45,-0.4,-1.16,-0.68,-1.76,2.73,2.22,2.85,2.47,2.61,2.19,1.54,0.09,-0.3,2.1,-0.58,2.15,2.23,2.83,0.46,-1.37,-0.37,-0.06,-0.68,0.82,0.75,1.11,0.76,2.71,2.92,1.33,-0.38,0.75,0.06,2.79,0.02,-2.06,0.09,2,0.96,-0.05,0.61,1.6],"Kurtosis":[8.27,2.38,4.89,2.94,3.3,9.84,5.41,-1.55,-0.68,0.13,2.17,8.31,4.81,10.06,6.39,7.74,4.9,2.06,-1.08,-0.66,4.51,-0.68,5.79,5.79,10.33,0.19,0.54,-0.99,-0.25,-1.2,-0.07,-0.15,1.83,0.42,9.35,7.88,2.3,-0.3,-0.78,-0.66,7.92,-1.25,5.02,-0.79,5.97,1.43,-0.93,-0.28,3.63],"N.missing":[0,0,0,0,3,0,3,1,0,0,0,0,0,6,4,7,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,1,0,0,0,7,6,7,0,0,0,0,2,0,1,1,0,4,2],"Prc.complete":[100,100,100,100,94.12,100,94.12,98.04,100,100,100,100,100,88.24,92.16,86.27,100,100,100,100,100,100,100,100,100,84.31,100,100,100,100,100,98.04,100,100,100,86.27,88.24,86.27,100,100,100,100,96.08,100,98.04,98.04,100,92.16,96.08],"Low.data.flag":["OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Prc.Unique":[1,1,1,1,0.96,0.57,0.41,0.84,0.04,0.27,0.43,0.98,1,0.9,0.94,0.88,1,1,1,1,1,0.84,0.59,0.9,1,0.8,0.73,0.65,0.9,0.96,1,1,1,1,1,0.35,0.71,0.88,0.75,0.78,0.92,0.76,0.98,0.96,1,1,0.98,0.94,0.8],"Frac.Zero":[0,0,0,0,0,0.35,0.04,0,0.25,0,0,0,0,0,0,0,0,0,0,0,0,0.18,0.12,0.08,0,0,0.04,0,0,0,0,0,0,0,0,0.27,0,0,0,0,0.02,0,0,0,0,0,0.04,0,0],"SK.outlier.flag":["Outliers","OK","Outliers","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","Outliers","Outliers","Outliers","Outliers","Outliers","OK","OK","OK","Outliers","OK","Outliers","Outliers","Outliers","OK","OK","OK","OK","OK","OK","OK","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","OK","Outliers","OK","OK","OK","OK","OK","OK"],"Low.Outliers.IQR":[0,0,0,0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0],"High.Outliers.IQR":[3,3,4,4,7,2,12,0,0,0,0,4,4,4,4,5,4,1,0,0,5,0,3,3,5,1,0,0,0,0,0,0,2,4,5,7,3,0,0,0,7,0,0,0,2,1,0,0,3],"Collinearity":["Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","Collinear","OK","OK","Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Neg.Correls":[1,1,1,0,6,16,15,7,5,9,9,2,0,1,2,0,0,4,9,9,1,0,1,6,1,6,9,0,7,11,10,8,6,6,1,17,14,10,18,18,2,9,6,5,1,8,18,7,19],"Denom.correlation":["High","High","High","High","OK","OK","OK","OK","OK","OK","OK","High","High","OK","OK","High","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"]},"columns":[{"accessor":"Indicator","name":"Indicator","type":"character"},{"accessor":"Min","name":"Min","type":"numeric"},{"accessor":"Max","name":"Max","type":"numeric"},{"accessor":"Mean","name":"Mean","type":"numeric"},{"accessor":"Median","name":"Median","type":"numeric"},{"accessor":"Q.5","name":"Q.5","type":"numeric"},{"accessor":"Q.25","name":"Q.25","type":"numeric"},{"accessor":"Q.75","name":"Q.75","type":"numeric"},{"accessor":"Q.95","name":"Q.95","type":"numeric"},{"accessor":"IQ.range","name":"IQ.range","type":"numeric"},{"accessor":"Std.dev","name":"Std.dev","type":"numeric"},{"accessor":"Skew","name":"Skew","type":"numeric"},{"accessor":"Kurtosis","name":"Kurtosis","type":"numeric"},{"accessor":"N.missing","name":"N.missing","type":"numeric"},{"accessor":"Prc.complete","name":"Prc.complete","type":"numeric"},{"accessor":"Low.data.flag","name":"Low.data.flag","type":"character"},{"accessor":"Prc.Unique","name":"Prc.Unique","type":"numeric"},{"accessor":"Frac.Zero","name":"Frac.Zero","type":"numeric"},{"accessor":"SK.outlier.flag","name":"SK.outlier.flag","type":"character"},{"accessor":"Low.Outliers.IQR","name":"Low.Outliers.IQR","type":"numeric"},{"accessor":"High.Outliers.IQR","name":"High.Outliers.IQR","type":"numeric"},{"accessor":"Collinearity","name":"Collinearity","type":"character"},{"accessor":"Neg.Correls","name":"Neg.Correls","type":"numeric"},{"accessor":"Denom.correlation","name":"Denom.correlation","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"94cc0f0b4a0ac9f299fe895f018c08b6","key":"94cc0f0b4a0ac9f299fe895f018c08b6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+--
+
+.pull-right[
+
+<div id="htmlwidget-f4fa80b06cae51e9469f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4fa80b06cae51e9469f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Indicator":["Goods","Services","FDI","PRemit","ForPort","CostImpEx"],"Min":[7.23,1.38,0.13,0.17,0,0],"Max":[1919.19,657.11,75.6,30.21,10601.75,992],"Mean":[289.66,128.98,12.53,6.56,1577.42,124.53],"Median":[142.61,54.07,6.1,4.69,259.22,45],"Q.5":[8.86,4.26,0.37,0.39,6.35,0],"Q.25":[44.06,15.74,2.21,1.33,46.98,0],"Q.75":[353.43,199.02,17.15,7.87,1588.93,155.5],"Q.95":[814.12,494.76,44.4,23.62,7260.44,357],"IQ.range":[309.38,183.28,14.94,6.54,1541.95,155.5],"Std.dev":[388.2,161.49,15.79,7.37,2587.11,181.95],"Skew":[2.65,1.7,2.1,1.81,2.02,2.69],"Kurtosis":[8.27,2.38,4.89,2.94,3.3,9.84],"N.missing":[0,0,0,0,3,0],"Prc.complete":[100,100,100,100,94.12,100],"Low.data.flag":["OK","OK","OK","OK","OK","OK"],"Prc.Unique":[1,1,1,1,0.96,0.57],"Frac.Zero":[0,0,0,0,0,0.35],"SK.outlier.flag":["Outliers","OK","Outliers","OK","OK","Outliers"],"Low.Outliers.IQR":[0,0,0,0,0,0],"High.Outliers.IQR":[3,3,4,4,7,2],"Collinearity":["Collinear","OK","OK","OK","OK","OK"],"Neg.Correls":[1,1,1,0,6,16],"Denom.correlation":["High","High","High","High","OK","OK"]},"columns":[{"accessor":"Indicator","name":"Indicator","type":"character"},{"accessor":"Min","name":"Min","type":"numeric"},{"accessor":"Max","name":"Max","type":"numeric"},{"accessor":"Mean","name":"Mean","type":"numeric"},{"accessor":"Median","name":"Median","type":"numeric"},{"accessor":"Q.5","name":"Q.5","type":"numeric"},{"accessor":"Q.25","name":"Q.25","type":"numeric"},{"accessor":"Q.75","name":"Q.75","type":"numeric"},{"accessor":"Q.95","name":"Q.95","type":"numeric"},{"accessor":"IQ.range","name":"IQ.range","type":"numeric"},{"accessor":"Std.dev","name":"Std.dev","type":"numeric"},{"accessor":"Skew","name":"Skew","type":"numeric"},{"accessor":"Kurtosis","name":"Kurtosis","type":"numeric"},{"accessor":"N.missing","name":"N.missing","type":"numeric"},{"accessor":"Prc.complete","name":"Prc.complete","type":"numeric"},{"accessor":"Low.data.flag","name":"Low.data.flag","type":"character"},{"accessor":"Prc.Unique","name":"Prc.Unique","type":"numeric"},{"accessor":"Frac.Zero","name":"Frac.Zero","type":"numeric"},{"accessor":"SK.outlier.flag","name":"SK.outlier.flag","type":"character"},{"accessor":"Low.Outliers.IQR","name":"Low.Outliers.IQR","type":"numeric"},{"accessor":"High.Outliers.IQR","name":"High.Outliers.IQR","type":"numeric"},{"accessor":"Collinearity","name":"Collinearity","type":"character"},{"accessor":"Neg.Correls","name":"Neg.Correls","type":"numeric"},{"accessor":"Denom.correlation","name":"Denom.correlation","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"f45a410740ead75234aca9f76cd2eec6","key":"f45a410740ead75234aca9f76cd2eec6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -449,34 +467,36 @@ ASEM$Analysis$Raw$StatTable %&gt;%
 ???
 
 
-Notes -At this point you may decide to check individual indicators, and some may be added or excluded.
+Notes - Apart from the overall statistics for each indicator, `getStats` also returns a few other things:
+
+* `.$Outliers`, which flags individual outlying points using the relation to the interquartile range
+* `.$Correlations`, which gives a correlation matrix between all indicators in the data set
+* `.$DenomCorrelations`, which gives the correlations between indicators and any denominators
+
+At this point you may decide to check individual indicators, and some may be added or excluded.
 
 ---
 
 ## View missing data by group
- 
-
 
 .pull-left[
- 
 
 
 ```r
 ASEM &lt;- checkData(ASEM, dset = "Raw")
 
-# 
 ASEM$Analysis$Raw$MissDatByGroup %&gt;%
   roundDF %&gt;%
   reactable::reactable()
 ```
-
-<div id="htmlwidget-78c690125acb6c06ffc6" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-78c690125acb6c06ffc6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"UnitCode":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"ConEcFin":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80,80,100,100,100,100,100,100,80,100,100,100,100,100,100,100,100,100,100],"Instit":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,83.33,100,100,100,100,100,100,100,100,100,100,83.33,83.33,100,100,100,100,100,83.33,100],"P2P":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,87.5,100,100,100,100,75,75,75,100,100,87.5,100,100,87.5,62.5,100,100,75,100,100,100,100,100,100,62.5],"Physical":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,87.5,87.5,87.5,100,100,100,100,87.5,100,87.5,100,87.5,87.5,100,87.5,100,100,100,100,100],"Political":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],"Environ":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80,100,100,100,100,100,100,100,100,100,100],"Social":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,88.89,100,100,100,88.89,100,100,100,100,100,100,100,100,100,100,100,100,88.89,55.56,77.78,100,100,100,88.89,88.89,88.89,88.89,88.89,100,66.67,77.78,100,100,100,77.78,100,88.89],"SusEcFin":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,80,60,100,80,100,100,100,100,80,80,100,80,80,100,100,100,100,100,100,100],"Conn":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,96.67,100,100,100,100,86.67,86.67,86.67,100,100,96.67,100,96.67,96.67,83.33,100,93.33,86.67,100,96.67,100,100,100,96.67,90],"Sust":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,94.74,100,100,100,94.74,100,100,100,100,100,100,100,100,100,100,100,100,89.47,68.42,89.47,94.74,100,100,94.74,94.74,89.47,84.21,94.74,94.74,78.95,89.47,100,100,100,89.47,100,94.74],"Index":[100,100,100,100,100,100,100,100,100,100,100,100,100,100,97.96,100,100,100,97.96,100,100,100,100,100,100,100,97.96,100,100,100,100,87.76,79.59,87.76,97.96,100,97.96,97.96,95.92,93.88,83.67,97.96,93.88,83.67,95.92,97.96,100,100,95.92,97.96,91.84]},"columns":[{"accessor":"UnitCode","name":"UnitCode","type":"character"},{"accessor":"ConEcFin","name":"ConEcFin","type":"numeric"},{"accessor":"Instit","name":"Instit","type":"numeric"},{"accessor":"P2P","name":"P2P","type":"numeric"},{"accessor":"Physical","name":"Physical","type":"numeric"},{"accessor":"Political","name":"Political","type":"numeric"},{"accessor":"Environ","name":"Environ","type":"numeric"},{"accessor":"Social","name":"Social","type":"numeric"},{"accessor":"SusEcFin","name":"SusEcFin","type":"numeric"},{"accessor":"Conn","name":"Conn","type":"numeric"},{"accessor":"Sust","name":"Sust","type":"numeric"},{"accessor":"Index","name":"Index","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"1b3815f485a4fdfde885b24c392fa614","key":"1b3815f485a4fdfde885b24c392fa614"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 ]
 
 --
 
 .pull-right[
+<div id="htmlwidget-de6e874a84f330101707" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-de6e874a84f330101707">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"UnitCode":["AUT","BEL","BGR","HRV","CYP","CZE"],"ConEcFin":[100,100,100,100,100,100],"Instit":[100,100,100,100,100,100],"P2P":[100,100,100,100,100,100],"Physical":[100,100,100,100,100,100],"Political":[100,100,100,100,100,100],"Environ":[100,100,100,100,100,100],"Social":[100,100,100,100,100,100],"SusEcFin":[100,100,100,100,100,100],"Conn":[100,100,100,100,100,100],"Sust":[100,100,100,100,100,100],"Index":[100,100,100,100,100,100]},"columns":[{"accessor":"UnitCode","name":"UnitCode","type":"character"},{"accessor":"ConEcFin","name":"ConEcFin","type":"numeric"},{"accessor":"Instit","name":"Instit","type":"numeric"},{"accessor":"P2P","name":"P2P","type":"numeric"},{"accessor":"Physical","name":"Physical","type":"numeric"},{"accessor":"Political","name":"Political","type":"numeric"},{"accessor":"Environ","name":"Environ","type":"numeric"},{"accessor":"Social","name":"Social","type":"numeric"},{"accessor":"SusEcFin","name":"SusEcFin","type":"numeric"},{"accessor":"Conn","name":"Conn","type":"numeric"},{"accessor":"Sust","name":"Sust","type":"numeric"},{"accessor":"Index","name":"Index","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"90a0369dea614a7b30d69b0d0b01d744","key":"90a0369dea614a7b30d69b0d0b01d744"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
 ]
 
 
@@ -504,12 +524,6 @@ class: inverse, left, middle
  
 
 To be able to compare small countries with larger ones, you may need to divide indicators by e.g. GDP or population , you can use `denominate()`. The specifications are either made initially in `IndMeta`, or as arguments to `denominate()`. In the case of the ASEM data set, these are included in `IndMeta` so the command is very simple (run `View(ASEMIndMeta)` to see). We will afterwards check the new stats to see what has changed. 
-]
-
---
-
-.pull-right[
-
 
 
 
@@ -526,8 +540,16 @@ ASEM$Analysis$Raw$StatTable %&gt;%
   reactable()
 ```
 
-<div id="htmlwidget-fb3beb1157b1050797a1" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-fb3beb1157b1050797a1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Indicator":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET"],"Min":[7.23,1.38,0.13,0.17,0,0,0,1,0,1,1,1.77,175,0.3,0,0.05,0.12,0.08,0.02,2.07,0.99,0,0,0,0.01,5.5,0,28,82,35.76,0.01,53.48,0.3,2.58,0.33,0,0.88,2.01,8,1.1,0,21,0.3,4.86,2.81,19.67,-0.68,0.08,0.6],"Max":[1919.19,657.11,75.6,30.21,10601.75,992,10.53,1754,1,46,92,445,96337,2771.7,9.57,74.47,82.57,10.93,21.49,4.23,210.82,21.17,122,110.18,94.8,28.6,100,100,329,43.19,64.92,192.45,22.12,38.38,31.85,22.7,2.62,37.6,87,9.8,1824,89,1.03,43.55,247.98,421.39,7.58,4.23,42.1],"Mean":[289.66,128.98,12.53,6.56,1577.42,124.53,2.46,794.84,0.75,23.92,69.18,64.08,16340.33,333.58,1.45,10,15.06,2.48,9.31,3.41,38.62,11.98,23.61,16.23,10.03,14.29,75.64,70.86,198.22,40.91,22.66,106.08,6.71,16.02,5.95,2.44,1.34,21.95,38.43,5.39,220.49,57.37,0.82,24.4,62.95,140.48,3.22,1.5,12.59],"Median":[142.61,54.07,6.1,4.69,259.22,45,1.6,1140.5,1,30,79,33.2,7731,112.6,0.58,3.3,9.2,1.4,9.1,3.42,25.65,12.69,18,6.91,1.14,14.6,91,75,197,42.52,17.17,96.63,5.94,15.02,4.98,0.4,1.25,23.35,28,5.1,66,57,0.86,23.7,52.09,128.46,3.53,1.29,10.9],"Q.5":[8.86,4.26,0.37,0.39,6.35,0,0.68,2.45,0,6.5,17,4.02,296,3.82,0.02,0.39,0.69,0.16,0.06,2.54,2.05,0,0,0,0.03,6.93,4.5,40.5,91,37.03,2.13,59.53,0.45,4.2,1.21,0,0.89,8.52,11.5,2,1,29,0.57,9.66,18.68,24.8,0,0.14,4],"Q.25":[44.06,15.74,2.21,1.33,46.98,0,1.6,117.25,0.5,17,61,13.55,1724,23.7,0.13,1.21,3.17,0.62,4.78,2.99,6.77,9.09,8.5,1.2,0.38,10.95,65.25,52,163.5,38.55,9.13,78.39,4.29,11,2.68,0,1.1,16.84,20.5,3.6,22.5,40.5,0.8,18.1,34.83,76.31,1.5,0.7,7],"Q.75":[353.43,199.02,17.15,7.87,1588.93,155.5,1.86,1185,1,30,81,69.55,20205,437.6,1.89,11.8,17.36,4.05,14.15,3.81,46.13,16.8,32,22.92,12.6,16.9,98.35,85,234,42.75,33.78,128.52,8.78,18.78,6.56,1.1,1.48,28.38,55.5,6.8,187.5,75,0.9,30.78,82.03,189.72,4.9,2.2,15.3],"Q.95":[814.12,494.76,44.4,23.62,7260.44,357,9.04,1389.4,1,30.5,87.5,250.5,67515,1315.3,6.36,40.14,55.82,8.05,19.31,4.2,142.58,20.56,68.5,59.05,39.3,22.42,100,100,286.5,43.1,58.54,172.64,15.11,33.17,15.24,17.91,2.08,34.1,84.5,8.45,1028.5,85,0.95,39.39,131.03,277.94,6.23,3.21,27.7],"IQ.range":[309.38,183.28,14.94,6.54,1541.95,155.5,0.26,1067.75,0.5,13,20,56,18481,413.9,1.77,10.58,14.19,3.43,9.36,0.82,39.36,7.71,23.5,21.72,12.22,5.95,33.1,33,70.5,4.2,24.65,50.13,4.49,7.78,3.88,1.1,0.38,11.54,35,3.2,165,34.5,0.1,12.68,47.2,113.41,3.4,1.5,8.3],"Std.dev":[388.2,161.49,15.79,7.37,2587.11,181.95,2.38,550.4,0.44,9.38,22.17,86.55,23136.9,526.71,2.09,15.02,18.36,2.53,6.35,0.54,46.72,6.84,24.82,22.67,17.51,5.11,32.15,20.06,58.63,2.38,17.2,35.45,4.55,8.21,5.63,5.51,0.37,8.52,24.42,2.15,387.49,19.8,0.14,9.72,43.65,84.89,2.04,1.02,7.74],"Skew":[2.65,1.7,2.1,1.81,2.02,2.69,2.45,-0.4,-1.16,-0.68,-1.76,2.73,2.22,2.85,2.47,2.61,2.19,1.54,0.09,-0.3,2.1,-0.58,2.15,2.23,2.83,0.46,-1.37,-0.37,-0.06,-0.68,0.82,0.75,1.11,0.76,2.71,2.92,1.33,-0.38,0.75,0.06,2.79,0.02,-2.06,0.09,2,0.96,-0.05,0.61,1.6],"Kurtosis":[8.27,2.38,4.89,2.94,3.3,9.84,5.41,-1.55,-0.68,0.13,2.17,8.31,4.81,10.06,6.39,7.74,4.9,2.06,-1.08,-0.66,4.51,-0.68,5.79,5.79,10.33,0.19,0.54,-0.99,-0.25,-1.2,-0.07,-0.15,1.83,0.42,9.35,7.88,2.3,-0.3,-0.78,-0.66,7.92,-1.25,5.02,-0.79,5.97,1.43,-0.93,-0.28,3.63],"N.missing":[0,0,0,0,3,0,3,1,0,0,0,0,0,6,4,7,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,1,0,0,0,7,6,7,0,0,0,0,2,0,1,1,0,4,2],"Prc.complete":[100,100,100,100,94.12,100,94.12,98.04,100,100,100,100,100,88.24,92.16,86.27,100,100,100,100,100,100,100,100,100,84.31,100,100,100,100,100,98.04,100,100,100,86.27,88.24,86.27,100,100,100,100,96.08,100,98.04,98.04,100,92.16,96.08],"Low.data.flag":["OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Prc.Unique":[1,1,1,1,0.96,0.57,0.41,0.84,0.04,0.27,0.43,0.98,1,0.9,0.94,0.88,1,1,1,1,1,0.84,0.59,0.9,1,0.8,0.73,0.65,0.9,0.96,1,1,1,1,1,0.35,0.71,0.88,0.75,0.78,0.92,0.76,0.98,0.96,1,1,0.98,0.94,0.8],"Frac.Zero":[0,0,0,0,0,0.35,0.04,0,0.25,0,0,0,0,0,0,0,0,0,0,0,0,0.18,0.12,0.08,0,0,0.04,0,0,0,0,0,0,0,0,0.27,0,0,0,0,0.02,0,0,0,0,0,0.04,0,0],"SK.outlier.flag":["Outliers","OK","Outliers","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","Outliers","Outliers","Outliers","Outliers","Outliers","OK","OK","OK","Outliers","OK","Outliers","Outliers","Outliers","OK","OK","OK","OK","OK","OK","OK","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","OK","Outliers","OK","OK","OK","OK","OK","OK"],"Low.Outliers.IQR":[0,0,0,0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0],"High.Outliers.IQR":[3,3,4,4,7,2,12,0,0,0,0,4,4,4,4,5,4,1,0,0,5,0,3,3,5,1,0,0,0,0,0,0,2,4,5,7,3,0,0,0,7,0,0,0,2,1,0,0,3],"Collinearity":["Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","Collinear","OK","OK","Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Neg.Correls":[1,1,1,0,6,16,15,7,5,9,9,2,0,1,2,0,0,4,9,9,1,0,1,6,1,6,9,0,7,11,10,8,6,6,1,17,14,10,18,18,2,9,6,5,1,8,18,7,19],"Denom.correlation":["High","High","High","High","OK","OK","OK","OK","OK","OK","OK","High","High","OK","OK","High","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"]},"columns":[{"accessor":"Indicator","name":"Indicator","type":"character"},{"accessor":"Min","name":"Min","type":"numeric"},{"accessor":"Max","name":"Max","type":"numeric"},{"accessor":"Mean","name":"Mean","type":"numeric"},{"accessor":"Median","name":"Median","type":"numeric"},{"accessor":"Q.5","name":"Q.5","type":"numeric"},{"accessor":"Q.25","name":"Q.25","type":"numeric"},{"accessor":"Q.75","name":"Q.75","type":"numeric"},{"accessor":"Q.95","name":"Q.95","type":"numeric"},{"accessor":"IQ.range","name":"IQ.range","type":"numeric"},{"accessor":"Std.dev","name":"Std.dev","type":"numeric"},{"accessor":"Skew","name":"Skew","type":"numeric"},{"accessor":"Kurtosis","name":"Kurtosis","type":"numeric"},{"accessor":"N.missing","name":"N.missing","type":"numeric"},{"accessor":"Prc.complete","name":"Prc.complete","type":"numeric"},{"accessor":"Low.data.flag","name":"Low.data.flag","type":"character"},{"accessor":"Prc.Unique","name":"Prc.Unique","type":"numeric"},{"accessor":"Frac.Zero","name":"Frac.Zero","type":"numeric"},{"accessor":"SK.outlier.flag","name":"SK.outlier.flag","type":"character"},{"accessor":"Low.Outliers.IQR","name":"Low.Outliers.IQR","type":"numeric"},{"accessor":"High.Outliers.IQR","name":"High.Outliers.IQR","type":"numeric"},{"accessor":"Collinearity","name":"Collinearity","type":"character"},{"accessor":"Neg.Correls","name":"Neg.Correls","type":"numeric"},{"accessor":"Denom.correlation","name":"Denom.correlation","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"94cc0f0b4a0ac9f299fe895f018c08b6","key":"94cc0f0b4a0ac9f299fe895f018c08b6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+]
+
+--
+
+.pull-right[
+
+
+
+<div id="htmlwidget-91195e52a788f0c02ac9" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-91195e52a788f0c02ac9">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Indicator":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET"],"Min":[7.23,1.38,0.13,0.17,0,0,0,1,0,1,1,1.77,175,0.3,0,0.05,0.12,0.08,0.02,2.07,0.99,0,0,0,0.01,5.5,0,28,82,35.76,0.01,53.48,0.3,2.58,0.33,0,0.88,2.01,8,1.1,0,21,0.3,4.86,2.81,19.67,-0.68,0.08,0.6],"Max":[1919.19,657.11,75.6,30.21,10601.75,992,10.53,1754,1,46,92,445,96337,2771.7,9.57,74.47,82.57,10.93,21.49,4.23,210.82,21.17,122,110.18,94.8,28.6,100,100,329,43.19,64.92,192.45,22.12,38.38,31.85,22.7,2.62,37.6,87,9.8,1824,89,1.03,43.55,247.98,421.39,7.58,4.23,42.1],"Mean":[289.66,128.98,12.53,6.56,1577.42,124.53,2.46,794.84,0.75,23.92,69.18,64.08,16340.33,333.58,1.45,10,15.06,2.48,9.31,3.41,38.62,11.98,23.61,16.23,10.03,14.29,75.64,70.86,198.22,40.91,22.66,106.08,6.71,16.02,5.95,2.44,1.34,21.95,38.43,5.39,220.49,57.37,0.82,24.4,62.95,140.48,3.22,1.5,12.59],"Median":[142.61,54.07,6.1,4.69,259.22,45,1.6,1140.5,1,30,79,33.2,7731,112.6,0.58,3.3,9.2,1.4,9.1,3.42,25.65,12.69,18,6.91,1.14,14.6,91,75,197,42.52,17.17,96.63,5.94,15.02,4.98,0.4,1.25,23.35,28,5.1,66,57,0.86,23.7,52.09,128.46,3.53,1.29,10.9],"Q.5":[8.86,4.26,0.37,0.39,6.35,0,0.68,2.45,0,6.5,17,4.02,296,3.82,0.02,0.39,0.69,0.16,0.06,2.54,2.05,0,0,0,0.03,6.93,4.5,40.5,91,37.03,2.13,59.53,0.45,4.2,1.21,0,0.89,8.52,11.5,2,1,29,0.57,9.66,18.68,24.8,0,0.14,4],"Q.25":[44.06,15.74,2.21,1.33,46.98,0,1.6,117.25,0.5,17,61,13.55,1724,23.7,0.13,1.21,3.17,0.62,4.78,2.99,6.77,9.09,8.5,1.2,0.38,10.95,65.25,52,163.5,38.55,9.13,78.39,4.29,11,2.68,0,1.1,16.84,20.5,3.6,22.5,40.5,0.8,18.1,34.83,76.31,1.5,0.7,7],"Q.75":[353.43,199.02,17.15,7.87,1588.93,155.5,1.86,1185,1,30,81,69.55,20205,437.6,1.89,11.8,17.36,4.05,14.15,3.81,46.13,16.8,32,22.92,12.6,16.9,98.35,85,234,42.75,33.78,128.52,8.78,18.78,6.56,1.1,1.48,28.38,55.5,6.8,187.5,75,0.9,30.78,82.03,189.72,4.9,2.2,15.3],"Q.95":[814.12,494.76,44.4,23.62,7260.44,357,9.04,1389.4,1,30.5,87.5,250.5,67515,1315.3,6.36,40.14,55.82,8.05,19.31,4.2,142.58,20.56,68.5,59.05,39.3,22.42,100,100,286.5,43.1,58.54,172.64,15.11,33.17,15.24,17.91,2.08,34.1,84.5,8.45,1028.5,85,0.95,39.39,131.03,277.94,6.23,3.21,27.7],"IQ.range":[309.38,183.28,14.94,6.54,1541.95,155.5,0.26,1067.75,0.5,13,20,56,18481,413.9,1.77,10.58,14.19,3.43,9.36,0.82,39.36,7.71,23.5,21.72,12.22,5.95,33.1,33,70.5,4.2,24.65,50.13,4.49,7.78,3.88,1.1,0.38,11.54,35,3.2,165,34.5,0.1,12.68,47.2,113.41,3.4,1.5,8.3],"Std.dev":[388.2,161.49,15.79,7.37,2587.11,181.95,2.38,550.4,0.44,9.38,22.17,86.55,23136.9,526.71,2.09,15.02,18.36,2.53,6.35,0.54,46.72,6.84,24.82,22.67,17.51,5.11,32.15,20.06,58.63,2.38,17.2,35.45,4.55,8.21,5.63,5.51,0.37,8.52,24.42,2.15,387.49,19.8,0.14,9.72,43.65,84.89,2.04,1.02,7.74],"Skew":[2.65,1.7,2.1,1.81,2.02,2.69,2.45,-0.4,-1.16,-0.68,-1.76,2.73,2.22,2.85,2.47,2.61,2.19,1.54,0.09,-0.3,2.1,-0.58,2.15,2.23,2.83,0.46,-1.37,-0.37,-0.06,-0.68,0.82,0.75,1.11,0.76,2.71,2.92,1.33,-0.38,0.75,0.06,2.79,0.02,-2.06,0.09,2,0.96,-0.05,0.61,1.6],"Kurtosis":[8.27,2.38,4.89,2.94,3.3,9.84,5.41,-1.55,-0.68,0.13,2.17,8.31,4.81,10.06,6.39,7.74,4.9,2.06,-1.08,-0.66,4.51,-0.68,5.79,5.79,10.33,0.19,0.54,-0.99,-0.25,-1.2,-0.07,-0.15,1.83,0.42,9.35,7.88,2.3,-0.3,-0.78,-0.66,7.92,-1.25,5.02,-0.79,5.97,1.43,-0.93,-0.28,3.63],"N.missing":[0,0,0,0,3,0,3,1,0,0,0,0,0,6,4,7,0,0,0,0,0,0,0,0,0,8,0,0,0,0,0,1,0,0,0,7,6,7,0,0,0,0,2,0,1,1,0,4,2],"Prc.complete":[100,100,100,100,94.12,100,94.12,98.04,100,100,100,100,100,88.24,92.16,86.27,100,100,100,100,100,100,100,100,100,84.31,100,100,100,100,100,98.04,100,100,100,86.27,88.24,86.27,100,100,100,100,96.08,100,98.04,98.04,100,92.16,96.08],"Low.data.flag":["OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Prc.Unique":[1,1,1,1,0.96,0.57,0.41,0.84,0.04,0.27,0.43,0.98,1,0.9,0.94,0.88,1,1,1,1,1,0.84,0.59,0.9,1,0.8,0.73,0.65,0.9,0.96,1,1,1,1,1,0.35,0.71,0.88,0.75,0.78,0.92,0.76,0.98,0.96,1,1,0.98,0.94,0.8],"Frac.Zero":[0,0,0,0,0,0.35,0.04,0,0.25,0,0,0,0,0,0,0,0,0,0,0,0,0.18,0.12,0.08,0,0,0.04,0,0,0,0,0,0,0,0,0.27,0,0,0,0,0.02,0,0,0,0,0,0.04,0,0],"SK.outlier.flag":["Outliers","OK","Outliers","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","Outliers","Outliers","Outliers","Outliers","Outliers","OK","OK","OK","Outliers","OK","Outliers","Outliers","Outliers","OK","OK","OK","OK","OK","OK","OK","OK","OK","Outliers","Outliers","OK","OK","OK","OK","Outliers","OK","Outliers","OK","OK","OK","OK","OK","OK"],"Low.Outliers.IQR":[0,0,0,0,0,0,5,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0],"High.Outliers.IQR":[3,3,4,4,7,2,12,0,0,0,0,4,4,4,4,5,4,1,0,0,5,0,3,3,5,1,0,0,0,0,0,0,2,4,5,7,3,0,0,0,7,0,0,0,2,1,0,0,3],"Collinearity":["Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","Collinear","OK","OK","Collinear","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"],"Neg.Correls":[1,1,1,0,6,16,15,7,5,9,9,2,0,1,2,0,0,4,9,9,1,0,1,6,1,6,9,0,7,11,10,8,6,6,1,17,14,10,18,18,2,9,6,5,1,8,18,7,19],"Denom.correlation":["High","High","High","High","OK","OK","OK","OK","OK","OK","OK","High","High","OK","OK","High","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK","OK"]},"columns":[{"accessor":"Indicator","name":"Indicator","type":"character"},{"accessor":"Min","name":"Min","type":"numeric"},{"accessor":"Max","name":"Max","type":"numeric"},{"accessor":"Mean","name":"Mean","type":"numeric"},{"accessor":"Median","name":"Median","type":"numeric"},{"accessor":"Q.5","name":"Q.5","type":"numeric"},{"accessor":"Q.25","name":"Q.25","type":"numeric"},{"accessor":"Q.75","name":"Q.75","type":"numeric"},{"accessor":"Q.95","name":"Q.95","type":"numeric"},{"accessor":"IQ.range","name":"IQ.range","type":"numeric"},{"accessor":"Std.dev","name":"Std.dev","type":"numeric"},{"accessor":"Skew","name":"Skew","type":"numeric"},{"accessor":"Kurtosis","name":"Kurtosis","type":"numeric"},{"accessor":"N.missing","name":"N.missing","type":"numeric"},{"accessor":"Prc.complete","name":"Prc.complete","type":"numeric"},{"accessor":"Low.data.flag","name":"Low.data.flag","type":"character"},{"accessor":"Prc.Unique","name":"Prc.Unique","type":"numeric"},{"accessor":"Frac.Zero","name":"Frac.Zero","type":"numeric"},{"accessor":"SK.outlier.flag","name":"SK.outlier.flag","type":"character"},{"accessor":"Low.Outliers.IQR","name":"Low.Outliers.IQR","type":"numeric"},{"accessor":"High.Outliers.IQR","name":"High.Outliers.IQR","type":"numeric"},{"accessor":"Collinearity","name":"Collinearity","type":"character"},{"accessor":"Neg.Correls","name":"Neg.Correls","type":"numeric"},{"accessor":"Denom.correlation","name":"Denom.correlation","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"94cc0f0b4a0ac9f299fe895f018c08b6","key":"94cc0f0b4a0ac9f299fe895f018c08b6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 
 ]
 
@@ -546,45 +568,25 @@ Notes -According to the new table, there are now no high correlations with denom
 .pull-left[
  
 
-Standard approach which Winsorises each indicator up to a specified limit of points, in order to bring skew and kurtosis below specified thresholds. If Winsorisation fails, it applies a log transformation or similar.
+Standard approach which Winsorises each indicator up to a specified limit of points, in order to bring skew and kurtosis below specified thresholds. If Winsorisation fails, it applies a log transformation or similar.Following treatment, it is a good idea to check which indicators were treated and how:
 
 
 ```r
 ASEM &lt;- treat(ASEM, 
               dset = "Denominated", 
               winmax = 5)
+ASEM$Analysis$Treated$TreatSummary %&gt;%
+  filter(Treatment != "None") %&gt;%
+  reactable()
 ```
 ]
 
 --
 
 .pull-right[
-
-Following treatment, it is a good idea to check which indicators were treated and how:
-
-
-```r
-ASEM$Analysis$Treated$TreatSummary %&gt;%
-  filter(Treatment != "None")
-```
-
-```
-##       IndCode Low High           TreatSpec           Treatment
-## V2   Services   0    4 Default, winmax = 5 Winsorised 4 points
-## V3        FDI   0    2 Default, winmax = 5 Winsorised 2 points
-## V5    ForPort   0    3 Default, winmax = 5 Winsorised 3 points
-## V6  CostImpEx   0    1 Default, winmax = 5 Winsorised 1 points
-## V7     Tariff   0    3 Default, winmax = 5 Winsorised 3 points
-## V12     StMob   0    2 Default, winmax = 5 Winsorised 2 points
-## V15  CultServ   0    2 Default, winmax = 5 Winsorised 2 points
-## V21   Flights   0    1 Default, winmax = 5 Winsorised 1 points
-## V23      Bord   0    3 Default, winmax = 5 Winsorised 3 points
-## V25       Gas   0    3 Default, winmax = 5 Winsorised 3 points
-## V35    Forest   0    2 Default, winmax = 5 Winsorised 2 points
-## V36   Poverty   0    3 Default, winmax = 5 Winsorised 3 points
-## V41      NGOs   0    3 Default, winmax = 5 Winsorised 3 points
-## V43    FemLab   1    0 Default, winmax = 5 Winsorised 1 points
-```
+ 
+<div id="htmlwidget-3a6c18fdacf57ab01955" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a6c18fdacf57ab01955">{"x":{"tag":{"name":"Reactable","attribs":{"data":{".rownames":["V2","V3","V5","V6","V7","V12"],"IndCode":["Services","FDI","ForPort","CostImpEx","Tariff","StMob"],"Low":[0,0,0,0,0,0],"High":[4,2,3,1,3,2],"TreatSpec":["Default, winmax = 5","Default, winmax = 5","Default, winmax = 5","Default, winmax = 5","Default, winmax = 5","Default, winmax = 5"],"Treatment":["Winsorised 4 points","Winsorised 2 points","Winsorised 3 points","Winsorised 1 points","Winsorised 3 points","Winsorised 2 points"]},"columns":[{"accessor":".rownames","name":"","type":"character","sortable":false,"filterable":false},{"accessor":"IndCode","name":"IndCode","type":"character"},{"accessor":"Low","name":"Low","type":"numeric"},{"accessor":"High","name":"High","type":"numeric"},{"accessor":"TreatSpec","name":"TreatSpec","type":"character"},{"accessor":"Treatment","name":"Treatment","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"3a7358c2b8d9a67299d7dbb0be9be1c6","key":"3a7358c2b8d9a67299d7dbb0be9be1c6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 
 
 ]
@@ -603,26 +605,27 @@ Notes -
 
 
 
-.pull-left[
+.left-column[
  
 Effect of the Winsorisation can be plotted using box plots or violin plots. 
+
+
+```r
+COINr::iplotIndDist2(ASEM, 
+  dsets = c("Denominated", "Treated"), 
+  icodes = "Services", 
+  ptype = "Scatter")
+```
 ]
 
 --
 
-.pull-right[
+.right-column[
 
 
+<div id="htmlwidget-f4fa80b06cae51e9469f" style="width:750px;height:463.5px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4fa80b06cae51e9469f">{"x":{"visdat":{"44fa29302f0a":["function () ","plotlyVisDat"]},"cur_data":"44fa29302f0a","attrs":{"44fa29302f0a":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"44fa29302f0a.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Trade in services <br> (Million USD)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Trade in services <br> (Million USD)"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[0.276681940794445,0.462254867226653,0.243742052901564,0.338794072256007,0.760098867666084,0.222543207322299,0.370398919453455,0.438248128135714,0.225605264893292,0.191158749982344,0.166319805540168,0.198135393098302,0.310924849651287,1.10917783352835,0.108956030826193,0.263149434041176,0.288904481310413,2.82768641582263,1.82464239937715,0.445881137056196,0.224642950519038,0.175530424570937,0.213728847524469,0.166318536379482,0.180966399813671,0.263728015550315,0.15938355214756,0.256778035747555,0.310029600268569,0.195712022067552,0.0833020877198363,0.0456396445810669,0.185490394414346,0.289391165863444,0.058574838537451,0.13023397074421,0.0579954816204536,0.0711933183269379,0.124883704482977,0.142319736141744,0.0872184959616381,0.245944958634483,0.243897222607497,0.0949810719669238,0.141592261176336,0.0389460389950171,0.181091173647035,0.0983541886685242,1.02616844245993,0.265365886247069,0.148738354805822],"y":[0.276681940794445,0.462254867226653,0.243742052901564,0.338794072256007,0.760098867666084,0.222543207322299,0.370398919453455,0.438248128135714,0.225605264893292,0.191158749982344,0.166319805540168,0.198135393098302,0.310924849651287,0.760098867666084,0.108956030826193,0.263149434041176,0.288904481310413,0.760098867666084,0.760098867666084,0.445881137056196,0.224642950519038,0.175530424570937,0.213728847524469,0.166318536379482,0.180966399813671,0.263728015550315,0.15938355214756,0.256778035747555,0.310029600268569,0.195712022067552,0.0833020877198363,0.0456396445810669,0.185490394414346,0.289391165863444,0.058574838537451,0.13023397074421,0.0579954816204536,0.0711933183269379,0.124883704482977,0.142319736141744,0.0872184959616381,0.245944958634483,0.243897222607497,0.0949810719669238,0.141592261176336,0.0389460389950171,0.181091173647035,0.0983541886685242,0.760098867666084,0.265365886247069,0.148738354805822],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
-```r
-iplotIndDist2(ASEM, 
-              dsets = c("Denominated", "Treated"), 
-              icodes = "Services", 
-              ptype = "Scatter")
-```
-
-<div id="htmlwidget-5bd90a3b1d8617e4bb90" style="width:1080px;height:667.44px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5bd90a3b1d8617e4bb90">{"x":{"visdat":{"419a103b8e2f":["function () ","plotlyVisDat"]},"cur_data":"419a103b8e2f","attrs":{"419a103b8e2f":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"419a103b8e2f.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"Trade in services <br> (Million USD)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Trade in services <br> (Million USD)"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[0.276681940794445,0.462254867226653,0.243742052901564,0.338794072256007,0.760098867666084,0.222543207322299,0.370398919453455,0.438248128135714,0.225605264893292,0.191158749982344,0.166319805540168,0.198135393098302,0.310924849651287,1.10917783352835,0.108956030826193,0.263149434041176,0.288904481310413,2.82768641582263,1.82464239937715,0.445881137056196,0.224642950519038,0.175530424570937,0.213728847524469,0.166318536379482,0.180966399813671,0.263728015550315,0.15938355214756,0.256778035747555,0.310029600268569,0.195712022067552,0.0833020877198363,0.0456396445810669,0.185490394414346,0.289391165863444,0.058574838537451,0.13023397074421,0.0579954816204536,0.0711933183269379,0.124883704482977,0.142319736141744,0.0872184959616381,0.245944958634483,0.243897222607497,0.0949810719669238,0.141592261176336,0.0389460389950171,0.181091173647035,0.0983541886685242,1.02616844245993,0.265365886247069,0.148738354805822],"y":[0.276681940794445,0.462254867226653,0.243742052901564,0.338794072256007,0.760098867666084,0.222543207322299,0.370398919453455,0.438248128135714,0.225605264893292,0.191158749982344,0.166319805540168,0.198135393098302,0.310924849651287,0.760098867666084,0.108956030826193,0.263149434041176,0.288904481310413,0.760098867666084,0.760098867666084,0.445881137056196,0.224642950519038,0.175530424570937,0.213728847524469,0.166318536379482,0.180966399813671,0.263728015550315,0.15938355214756,0.256778035747555,0.310029600268569,0.195712022067552,0.0833020877198363,0.0456396445810669,0.185490394414346,0.289391165863444,0.058574838537451,0.13023397074421,0.0579954816204536,0.0711933183269379,0.124883704482977,0.142319736141744,0.0872184959616381,0.245944958634483,0.243897222607497,0.0949810719669238,0.141592261176336,0.0389460389950171,0.181091173647035,0.0983541886685242,0.760098867666084,0.265365886247069,0.148738354805822],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -635,12 +638,27 @@ Notes -It is also a good idea to visualise and compare the treated data against 
 
 ## Normalise the data
 
-
+Normalisation is the operation of bringing indicators onto comparable scales so that they can be aggregated more fairly
 
 .pull-left[
  
 
 The next step would be to normalise the data. In the ASEM index we will use a simple min-max normalisation in the `\([0, 100]\)` interval. 
+
+* `ntype = "minmax"` yields a min-max transformation that scales each indicator onto an interval specified by `npara`, e.g. if `npara$minmax = c(0,10)` the indicators will scale to [0, 10].
+* `ntype = "zscore"` scales the indicator to have a mean and standard deviation specified by `npara`, e.g. if `npara$zscore = c(0,1)` the indicator will have mean zero and standard deviation 1.
+* `ntype = "scaled"` is a general linear transformation defined by `npara$scaled = c(a,b)` which subtracts `a` and divides by `b`.
+* `ntype = "goalposts"` is a capped linear transformation (see the "goalposts" method mentioned previously). Here `npara$goalposts = c(l, u, a)`, where `l` is the lower bound, `u` is the upper bound, and `a` is a scaling parameter.
+* `ntype = "rank"` replaces indicator scores with their corresponding ranks, such that the highest scores have the largest rank values. Ties take average rank values. Here `npara` is not used.
+* `ntype = "borda"` is similar to `ntype = "rank"` but uses Borda scores, which are simply rank values minus one. `npara` is not used.
+* `ntype = "prank"` gives percentile ranks. `npara` is not used.
+* `ntype = "fracmax"` scales each indicator by dividing the value by the maximum value of the indicator. `npara` is not used.
+* `ntype = "dist2ref"` gives the distance to a reference unit, defined by `npara`. For example, if `npara$dist2ref = "AUT"` then all scores will be normalised as the distance to the score of unit "AUT" in each indicator (divided by the range of the indicator). This is useful for benchmarking against a set unit, e.g. a reference country. Scores
+* `ntype = "dist2max"` gives the normalised distance to the maximum of each indicator.
+* `ntype = "dist2targ"` gives the normalised distance to indicator targets. Targets are specified, in the `IndMeta` argument of `assemble()`, and will be in the COIN at `.$Input$IndMeta`. Any scores that exceed the target will be capped at a normalised value of one.
+* `ntype = "custom"` allows to pass a custom function to apply to every indicator. For example, `npara$custom = function(x) {x/max(x, na.rm = T)}` would give the "fracmax" normalisation method described above.
+* `ntype = "none"` the indicator is not normalised (this is mainly useful for adjustments and sensitivity analysis).
+
 ]
 
 --
@@ -672,8 +690,15 @@ Notes -Again, we could visualise and check stats here but to keep things shorter
 .pull-left[
  
 Aggregation type can be:
- * 
- * 
+ * `arith_mean` The most straightforward and widely-used approach to aggregation is the **weighted arithmetic mean**.
+ 
+ * `geom_mean` the **weighted geometric mean** uses the product of the indicators rather than the sum
+
+ * `harm_mean` The [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means) also called **weighted harmonic mean**,  uses the mean of the reciprocals of the indicators. It is the the least compensatory of the the three means, even less so than the geometric mean. It is often used for taking the mean of rates and ratios.
+
+  * `median` The *weighted median* is defined by ordering indicator values, then picking the value which has half of the assigned weight above it, and half below it.
+
+ * `copeland` The [Copeland method](https://en.wikipedia.org/wiki/Copeland%27s_method) is based pairwise comparisons between units, calculated from an *outranking matrix* 
 ]
 
 --
@@ -871,14 +896,32 @@ Notes -Recall here that because we have plotted a "Raw" indicator against the in
 
 ## Correlation analysis on the normalised data 
 
+
+
+.left-column[
+ 
+
 As indicators have had their directions reversed where appropriate, how the consistency of the sustainability pillars is then affected? 
 
 
 ```r
-plotCorr(ASEM, dset = "Aggregated", icodes = "Sust", aglevs = 2, pval = 0)
+COINr::plotCorr(ASEM, 
+        dset = "Aggregated", 
+        icodes = "Sust", 
+        aglevs = 2, 
+        pval = 0)
 ```
+]
 
-&lt;img src="TrainingSeverityIndex_files/figure-html/unnamed-chunk-15-1.png" width="1080" /&gt;
+--
+
+.right-column[
+
+
+&lt;img src="TrainingSeverityIndex_files/figure-html/unnamed-chunk-20-1.png" width="1200" /&gt;
+
+]
+ 
 
 ???
 
@@ -940,7 +983,10 @@ Once again we see a fairly clear divide between Asia and Europe in terms of P2P 
 
 ## Understand the effective weights of each indicator
 
-A sometimes under-appreciated fact is that the weight of an indicator in the final index is due to its own weight, plus the weight of all its parents, as well as the number of indicators and aggregates in each group. For example, an equally-weighted group of two indicators will each have a higher weight (0.5) than an equally weighted group of ten indicators (0.1), and this applies to all aggregation levels.
+A sometimes under-appreciated fact is that the weight of an indicator in the final index is due to its own weight, plus the weight of all its parents, as well as the number of indicators and aggregates in each group. 
+.left-column[
+
+For example, an equally-weighted group of two indicators will each have a higher weight (0.5) than an equally weighted group of ten indicators (0.1), and this applies to all aggregation levels.
 
 
 ```r
@@ -951,11 +997,20 @@ EffWts &lt;- effectiveWeight(ASEM)
 #   filter(AgLevel == 1) %&gt;%
 #   filter(EffectiveWeight %in% c(min(IndWts$EffectiveWeight), max(IndWts$EffectiveWeight)))
 
-plotframework(ASEM)
+COINr::plotframework(ASEM)
 ```
+ 
+]
 
-<div id="htmlwidget-d6507512ee5e7cc48400" style="width:1080px;height:667.44px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d6507512ee5e7cc48400">{"x":{"visdat":{"297f49dcc622":["function () ","plotlyVisDat"]},"cur_data":"297f49dcc622","attrs":{"297f49dcc622":{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+--
+
+.right-column[
+
+<div id="htmlwidget-f4fa80b06cae51e9469f" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4fa80b06cae51e9469f">{"x":{"visdat":{"44717daf597d":["function () ","plotlyVisDat"]},"cur_data":"44717daf597d","attrs":{"44717daf597d":{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+]
+
+
 
 ???
 
@@ -992,7 +1047,7 @@ Now we need to compare the two alternative indexes:
 
 
 ```r
-compTable(ASEM, ASEM_NoPolitical, dset = "Aggregated", isel = "Index",
+COINr::compTable(ASEM, ASEM_NoPolitical, dset = "Aggregated", isel = "Index",
           COINnames = c("Original", "NoPolitical"))
 ```
 
@@ -1138,18 +1193,31 @@ class: inverse, left, middle
 
 ## Index &amp; Sub Dimensions
 
+
+
+.left-column[
+ 
+
 We can now visualize our results. A good way at the index level is a stacked bar chart.
 
 
 ```r
-iplotBar(ASEM, dset = "Aggregated", 
+COINr::iplotBar(ASEM, dset = "Aggregated", 
          isel = "Index", 
          aglev = 4, 
          stack_children = T)
 ```
+ 
+]
 
-<div id="htmlwidget-78c690125acb6c06ffc6" style="width:1080px;height:667.44px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-78c690125acb6c06ffc6">{"x":{"visdat":{"297f11de398d":["function () ","plotlyVisDat"]},"cur_data":"297f11de398d","attrs":{"297f11de398d":{"x":{},"y":{},"key":{},"name":"Conn","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"297f11de398d.1":{"x":{},"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":{},"name":"Sust","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Sustainable Connectivity","y":0.95},"yaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false},"xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"array","categoryarray":{"Index":[68.621403668364,65.1651358926319,65.0410383080279,64.6071663752533,64.1121692355648,63.224823201446,62.3642937416572,61.6868684841489,61.1295968310016,60.7497051038254,60.5137694239751,60.2709945407649,59.8030710567783,59.1189300300464,58.2416267711836,57.2939257480353,56.8523358014573,56.1034368331307,55.8882429293819,55.7937082339417,55.3573637246148,55.1587365396442,55.146816044091,55.0829063362119,54.7648797130732,54.2959872906309,54.0784920389337,52.3019881561583,51.6452608367962,50.9378852194357,50.4324063148894,49.8521681997249,49.3797777604972,47.4949280469203,45.959441786501,43.2854587144294,43.2017559236092,41.7270225080216,41.7237550660752,41.7198537081406,41.1580879386198,40.1595694805621,40.1268409828404,40.0841372709449,39.7607259845468,39.4695646071414,39.0616577624139,38.9191348380666,38.2199505267257,37.806472915641,35.731036156064]},"type":"category"},"barmode":"stack","hovermode":"closest","showlegend":true},"source":"barclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[62.7879617199478,61.9398723576584,57.0974895685389,57.4355053198748,63.9901642314296,53.8747393274374,55.4300181160593,66.5553995441179,54.3493607627902,52.5277428069315,55.2349061335593,59.5781922559545,61.9069528310472,52.1354995771061,52.8104446454481,48.1105857417282,52.0514584190484,50.1418764487134,50.9086036314699,52.3059845443379,53.5015247692406,50.404368988425,47.9876649965869,49.5383942064484,43.8760223317633,48.2518738858441,49.0904971083045,47.7436568351534,51.7799237445284,44.7182237806758,43.5652636498673,45.3147665624098,39.2362179822402,36.96893253234,38.3648083260859,30.954411649716,30.4092650759974,43.3508340450876,27.1281223982067,42.3169256763717,32.027377920802,28.5951573015857,20.5882278542428,27.873507966043,23.288220717606,30.8766429111389,30.9665349519263,16.9684144112457,28.2395983229804,21.9596090936419,29.985845667267],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Conn","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Sust","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+--
+
+.right-column[
+
+<div id="htmlwidget-de6e874a84f330101707" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-de6e874a84f330101707">{"x":{"visdat":{"44712f3358ce":["function () ","plotlyVisDat"]},"cur_data":"44712f3358ce","attrs":{"44712f3358ce":{"x":{},"y":{},"key":{},"name":"Conn","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"44712f3358ce.1":{"x":{},"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":{},"name":"Sust","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Sustainable Connectivity","y":0.95},"yaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false},"xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"array","categoryarray":{"Index":[68.621403668364,65.1651358926319,65.0410383080279,64.6071663752533,64.1121692355648,63.224823201446,62.3642937416572,61.6868684841489,61.1295968310016,60.7497051038254,60.5137694239751,60.2709945407649,59.8030710567783,59.1189300300464,58.2416267711836,57.2939257480353,56.8523358014573,56.1034368331307,55.8882429293819,55.7937082339417,55.3573637246148,55.1587365396442,55.146816044091,55.0829063362119,54.7648797130732,54.2959872906309,54.0784920389337,52.3019881561583,51.6452608367962,50.9378852194357,50.4324063148894,49.8521681997249,49.3797777604972,47.4949280469203,45.959441786501,43.2854587144294,43.2017559236092,41.7270225080216,41.7237550660752,41.7198537081406,41.1580879386198,40.1595694805621,40.1268409828404,40.0841372709449,39.7607259845468,39.4695646071414,39.0616577624139,38.9191348380666,38.2199505267257,37.806472915641,35.731036156064]},"type":"category"},"barmode":"stack","hovermode":"closest","showlegend":true},"source":"barclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[62.7879617199478,61.9398723576584,57.0974895685389,57.4355053198748,63.9901642314296,53.8747393274374,55.4300181160593,66.5553995441179,54.3493607627902,52.5277428069315,55.2349061335593,59.5781922559545,61.9069528310472,52.1354995771061,52.8104446454481,48.1105857417282,52.0514584190484,50.1418764487134,50.9086036314699,52.3059845443379,53.5015247692406,50.404368988425,47.9876649965869,49.5383942064484,43.8760223317633,48.2518738858441,49.0904971083045,47.7436568351534,51.7799237445284,44.7182237806758,43.5652636498673,45.3147665624098,39.2362179822402,36.96893253234,38.3648083260859,30.954411649716,30.4092650759974,43.3508340450876,27.1281223982067,42.3169256763717,32.027377920802,28.5951573015857,20.5882278542428,27.873507966043,23.288220717606,30.8766429111389,30.9665349519263,16.9684144112457,28.2395983229804,21.9596090936419,29.985845667267],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Conn","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Sust","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+]
+ 
 ???
 
 Notes -
@@ -1159,17 +1227,29 @@ Notes -
 
 ## Sub Indices Interactions
 
+.left-column[
+ 
  
 
 
 ```r
-iplotIndDist2(ASEM, 
-              dsets = "Aggregated", 
-              icodes = "Index")
+COINr::iplotIndDist2(ASEM, 
+    dsets = "Aggregated", 
+    icodes = "Index")
 ```
+ 
+]
 
-<div id="htmlwidget-fb3beb1157b1050797a1" style="width:1080px;height:667.44px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fb3beb1157b1050797a1">{"x":{"visdat":{"297f6e7fa714":["function () ","plotlyVisDat"]},"cur_data":"297f6e7fa714","attrs":{"297f6e7fa714":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"297f6e7fa714.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"yaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[40.7147978302105,80.0790829492294,47.1178543410879,29.6595542299126,21.5525492605235,88.8553124519079,24.3804882124031,75.3754890317444,20.7554972641161,15.0864687872643,29.5283169130779,11.5609768118045,87.2032124615804,23.0805774954351,15.7540188845476,62.5592560718532,59.6935324437879,27.8860822178772,75.179034652212,60.1300025526122,17.8605021462841,44.7279167208669,25.9424245175779,34.1151202706534,100,76.7590567226543,16.2628895134529,22.6777229358393,33.0443479319491,11.5808067789694,6.49608314755034,8.83072346888023,35.288121363973,63.2943152409557,1.73181451143796,0,7.70970515433294,1.42407266048311,19.4924394427823,19.1743392104261,30.5551357206689,56.3972144036942,39.8835633758377,24.7038370008743,8.99879169192228,2.25795082759758,18.1757885716913,10.3132031797815,88.2538120920766,39.4852273246478,82.3897744174304],"y":[32.966091561691,58.6989070002964,28.3984206626414,41.5789859430416,100,25.4588432615058,45.9615309377953,55.3699678161877,25.8834491770973,21.1068590367762,17.6625205478115,22.0742882471442,37.714448289341,100,9.70806589779169,31.0895813109849,34.6609529045343,100,100,56.4284132131985,25.7500080622608,18.9397281887691,24.2365836450423,17.6623445572814,19.6935178192904,31.1698113934496,16.7006920536502,30.2060795010617,37.5903068664518,21.7382469900896,6.1507141012756,0.928181284178657,20.3208459556872,34.7284399244394,2.72186404352122,12.6586110627088,2.64152643768182,4.47162904309004,11.9167064277242,14.3345062290365,6.69379014370325,28.7038906885967,28.4199375588891,7.77020220182281,14.2336295581721,0,19.7108198152618,8.2379417110495,100,31.3969297838429,15.2245559395681],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+--
+
+.right-column[
+
+<div id="htmlwidget-91195e52a788f0c02ac9" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-91195e52a788f0c02ac9">{"x":{"visdat":{"4471480783b1":["function () ","plotlyVisDat"]},"cur_data":"4471480783b1","attrs":{"4471480783b1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"4471480783b1.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"yaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[40.7147978302105,80.0790829492294,47.1178543410879,29.6595542299126,21.5525492605235,88.8553124519079,24.3804882124031,75.3754890317444,20.7554972641161,15.0864687872643,29.5283169130779,11.5609768118045,87.2032124615804,23.0805774954351,15.7540188845476,62.5592560718532,59.6935324437879,27.8860822178772,75.179034652212,60.1300025526122,17.8605021462841,44.7279167208669,25.9424245175779,34.1151202706534,100,76.7590567226543,16.2628895134529,22.6777229358393,33.0443479319491,11.5808067789694,6.49608314755034,8.83072346888023,35.288121363973,63.2943152409557,1.73181451143796,0,7.70970515433294,1.42407266048311,19.4924394427823,19.1743392104261,30.5551357206689,56.3972144036942,39.8835633758377,24.7038370008743,8.99879169192228,2.25795082759758,18.1757885716913,10.3132031797815,88.2538120920766,39.4852273246478,82.3897744174304],"y":[32.966091561691,58.6989070002964,28.3984206626414,41.5789859430416,100,25.4588432615058,45.9615309377953,55.3699678161877,25.8834491770973,21.1068590367762,17.6625205478115,22.0742882471442,37.714448289341,100,9.70806589779169,31.0895813109849,34.6609529045343,100,100,56.4284132131985,25.7500080622608,18.9397281887691,24.2365836450423,17.6623445572814,19.6935178192904,31.1698113934496,16.7006920536502,30.2060795010617,37.5903068664518,21.7382469900896,6.1507141012756,0.928181284178657,20.3208459556872,34.7284399244394,2.72186404352122,12.6586110627088,2.64152643768182,4.47162904309004,11.9167064277242,14.3345062290365,6.69379014370325,28.7038906885967,28.4199375588891,7.77020220182281,14.2336295581721,0,19.7108198152618,8.2379417110495,100,31.3969297838429,15.2245559395681],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+]
+ 
+ 
+ 
 
 ???
 
@@ -1180,14 +1260,26 @@ Notes -
 
 ## Display the index on a Map
 
- 
+.left-column[
+
 
 ```r
-iplotMap(ASEM, dset = "Aggregated", isel = "Conn")
+COINr::iplotMap(ASEM, 
+    dset = "Aggregated", 
+    isel = "Conn")
 ```
+ 
+]
 
-<div id="htmlwidget-5bd90a3b1d8617e4bb90" style="width:1080px;height:667.44px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5bd90a3b1d8617e4bb90">{"x":{"visdat":{"297f45738fd":["function () ","plotlyVisDat"]},"cur_data":"297f45738fd","attrs":{"297f45738fd":{"z":{},"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":{},"colorscale":"Greens","key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"showscale":true,"reversescale":true,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"zaxis":{"title":"get(isel)"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5},"title":"Connectivity","geo":{"showframe":false,"showcoastlines":true,"projection":{"type":"Mercator"},"showcountries":false,"bgcolor":"rgba(255,255,255,0)","showframe.1":false,"showland":true,"landcolor":"rgba(229,229,229,1)","countrycolor":"rgba(255,255,255,1)","coastlinecolor":"rgba(255,255,255,1)"}},"source":"mapclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"Conn","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":"Greens","showscale":true,"z":[55.4300181160593,63.9901642314296,44.7182237806758,50.1418764487134,51.7799237445284,52.0514584190484,57.0974895685389,53.5015247692406,52.1354995771061,50.9086036314699,54.3493607627902,45.3147665624098,52.3059845443379,55.2349061335593,47.7436568351534,47.9876649965869,48.1105857417282,66.5553995441179,59.5781922559545,61.9398723576584,57.4355053198748,48.2518738858441,49.0904971083045,43.8760223317633,50.404368988425,52.5277428069315,49.5383942064484,53.8747393274374,62.7879617199478,52.8104446454481,38.3648083260859,16.9684144112457,43.3508340450876,30.4092650759974,28.2395983229804,28.5951573015857,27.873507966043,36.96893253234,30.9665349519263,43.5652636498673,23.288220717606,42.3169256763717,30.8766429111389,20.5882278542428,39.2362179822402,21.9596090936419,27.1281223982067,29.985845667267,61.9069528310472,32.027377920802,30.954411649716],"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"reversescale":true,"type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+--
+
+.right-column[
+
+<div id="htmlwidget-3a6c18fdacf57ab01955" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3a6c18fdacf57ab01955">{"x":{"visdat":{"447177885795":["function () ","plotlyVisDat"]},"cur_data":"447177885795","attrs":{"447177885795":{"z":{},"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":{},"colorscale":"Greens","key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"showscale":true,"reversescale":true,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"zaxis":{"title":"get(isel)"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5},"title":"Connectivity","geo":{"showframe":false,"showcoastlines":true,"projection":{"type":"Mercator"},"showcountries":false,"bgcolor":"rgba(255,255,255,0)","showframe.1":false,"showland":true,"landcolor":"rgba(229,229,229,1)","countrycolor":"rgba(255,255,255,1)","coastlinecolor":"rgba(255,255,255,1)"}},"source":"mapclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"Conn","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":"Greens","showscale":true,"z":[55.4300181160593,63.9901642314296,44.7182237806758,50.1418764487134,51.7799237445284,52.0514584190484,57.0974895685389,53.5015247692406,52.1354995771061,50.9086036314699,54.3493607627902,45.3147665624098,52.3059845443379,55.2349061335593,47.7436568351534,47.9876649965869,48.1105857417282,66.5553995441179,59.5781922559545,61.9398723576584,57.4355053198748,48.2518738858441,49.0904971083045,43.8760223317633,50.404368988425,52.5277428069315,49.5383942064484,53.8747393274374,62.7879617199478,52.8104446454481,38.3648083260859,16.9684144112457,43.3508340450876,30.4092650759974,28.2395983229804,28.5951573015857,27.873507966043,36.96893253234,30.9665349519263,43.5652636498673,23.288220717606,42.3169256763717,30.8766429111389,20.5882278542428,39.2362179822402,21.9596090936419,27.1281223982067,29.985845667267,61.9069528310472,32.027377920802,30.954411649716],"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"reversescale":true,"type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+]
+ 
+ 
 
 ???
 
@@ -1200,65 +1292,22 @@ Notes -
 
 
 ```r
-getResults(ASEM, tab_type = "Summary") %&gt;%
+COINr::getResults(ASEM, tab_type = "Summary") %&gt;%
+  head(7)%&gt;%
   knitr::kable()
 ```
 
 
 
-|UnitCode |UnitName           | Index| Rank|
-|:--------|:------------------|-----:|----:|
-|CHE      |Switzerland        | 68.62|    1|
-|NLD      |Netherlands        | 65.17|    2|
-|DNK      |Denmark            | 65.04|    3|
-|NOR      |Norway             | 64.61|    4|
-|BEL      |Belgium            | 64.11|    5|
-|SWE      |Sweden             | 63.22|    6|
-|AUT      |Austria            | 62.36|    7|
-|LUX      |Luxembourg         | 61.69|    8|
-|DEU      |Germany            | 61.13|    9|
-|SVN      |Slovenia           | 60.75|   10|
-|IRL      |Ireland            | 60.51|   11|
-|MLT      |Malta              | 60.27|   12|
-|SGP      |Singapore          | 59.80|   13|
-|FIN      |Finland            | 59.12|   14|
-|GBR      |United Kingdom     | 58.24|   15|
-|LTU      |Lithuania          | 57.29|   16|
-|CZE      |Czech Republic     | 56.85|   17|
-|HRV      |Croatia            | 56.10|   18|
-|FRA      |France             | 55.89|   19|
-|HUN      |Hungary            | 55.79|   20|
-|EST      |Estonia            | 55.36|   21|
-|SVK      |Slovakia           | 55.16|   22|
-|LVA      |Latvia             | 55.15|   23|
-|ESP      |Spain              | 55.08|   24|
-|ROU      |Romania            | 54.76|   25|
-|POL      |Poland             | 54.30|   26|
-|PRT      |Portugal           | 54.08|   27|
-|ITA      |Italy              | 52.30|   28|
-|CYP      |Cyprus             | 51.65|   29|
-|BGR      |Bulgaria           | 50.94|   30|
-|KOR      |Korea              | 50.43|   31|
-|GRC      |Greece             | 49.85|   32|
-|NZL      |New Zealand        | 49.38|   33|
-|JPN      |Japan              | 47.49|   34|
-|AUS      |Australia          | 45.96|   35|
-|VNM      |Vietnam            | 43.29|   36|
-|KHM      |Cambodia           | 43.20|   37|
-|BRN      |Brunei Darussalam  | 41.73|   38|
-|PHL      |Philippines        | 41.72|   39|
-|MYS      |Malaysia           | 41.72|   40|
-|THA      |Thailand           | 41.16|   41|
-|IND      |India              | 40.16|   42|
-|MMR      |Myanmar            | 40.13|   43|
-|IDN      |Indonesia          | 40.08|   44|
-|LAO      |Lao PDR            | 39.76|   45|
-|MNG      |Mongolia           | 39.47|   46|
-|KAZ      |Kazakhstan         | 39.06|   47|
-|BGD      |Bangladesh         | 38.92|   48|
-|CHN      |China              | 38.22|   49|
-|PAK      |Pakistan           | 37.81|   50|
-|RUS      |Russian Federation | 35.73|   51|
+|UnitCode |UnitName    | Index| Rank|
+|:--------|:-----------|-----:|----:|
+|CHE      |Switzerland | 68.62|    1|
+|NLD      |Netherlands | 65.17|    2|
+|DNK      |Denmark     | 65.04|    3|
+|NOR      |Norway      | 64.61|    4|
+|BEL      |Belgium     | 64.11|    5|
+|SWE      |Sweden      | 63.22|    6|
+|AUT      |Austria     | 62.36|    7|
 
 
 ???
@@ -1275,12 +1324,11 @@ Get tables to present (the highest levels of aggregation are the first columns, 
 
 ```r
 # Write full results table to COIN
-getResults(ASEM, tab_type = "FullWithDenoms", out2 = "COIN")
+COINr::getResults(ASEM, tab_type = "FullWithDenoms", out2 = "COIN")
 
 # Export entire COIN to Excel
-coin2Excel(ASEM, "ASEM_results.xlsx")
+COINr::coin2Excel(ASEM, "ASEM_results.xlsx")
 ```
-
 
 ???
 
@@ -1291,7 +1339,7 @@ class: inverse, left, middle
 
 # Conclusion. Reproducibility to ensure transparency
 
- * Strictly Use "curated &amp; published" data for your sub-indicators
+ * Strictly Use "curated &amp; published" data for your sub-indicators - Data should be available on [HDX](https://data.humdata.org)
  
  * Put Code into github to document your process - the data structure required for the packages allows for better discoverability!
  
@@ -1303,7 +1351,7 @@ class: inverse, left, middle
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false,
+"countIncrementalSlides": true,
 "ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
