@@ -171,7 +171,7 @@ Depending on the pace of the group, if we do not finish today we will org anise 
 .pull-left[
 
 In the development area,  there has been long focus to improve the quality of index through methodology nd user guide such as 
-[Handbook on Constructing Composite Indicators](https://www.oecd.org/sdd/42495745.pdf) or the  [Ten Step Guide](https://knowledge4policy.ec.europa.eu/publication/your-10-step-pocket-guide-composite-indicators-scoreboards_en).  
+[Handbook on Constructing Composite Indicators](https://www.oecd.org/sdd/42495745.pdf), the  [Ten Step Guide](https://knowledge4policy.ec.europa.eu/publication/your-10-step-pocket-guide-composite-indicators-scoreboards_en) & the [pocket Guide](https://knowledge4policy.ec.europa.eu/sites/default/files/10-step-pocket-guide-to-composite-indicators-and-scoreboards.pdf) .  
 
 To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), the following steps are required: 
 
@@ -202,7 +202,7 @@ Notes -
 
 ### The COIN Object
 
-A dedicated package has been created by the European Joint Research center to facilitate the creation of composite indicators. it includes __all steps & components__ to support the process.
+A dedicated package, [COINr](https://bluefoxr.github.io/COINrDoc) has been created by the European Joint Research center to facilitate the creation of composite indicators. it includes __all steps & components__ to support the process.
 
 ![tidyverse](images/coinR.png)  
 
@@ -935,7 +935,7 @@ class: inverse, left, middle
 
  * Strictly Use "curated & published" data for your sub-indicators
  
- * Put Code into github to document your process
+ * Put Code into github to document your process - the data structure required for the packages allows for better discoverability!
  
  * Call for peer review to cover yourself! 
 
