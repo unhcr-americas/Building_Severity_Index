@@ -1,5 +1,5 @@
 ---
-title: "Building Humanitarian Severity Index with R & COINr"
+title: "Building Humanitarian Severity Index with R, COINr & Compind"
 subtitle: "Ensure Statistical Rigor & Robustness"
 author: " "
 institute: ""
@@ -61,7 +61,7 @@ Each index acts as a metric to quantify and to compare the situation of differen
 Crisis severity is indeed a complex, multi-factorial construct 
 
 
-CHALLENGE: Summarising and __condensing__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
+CHALLENGE: Summarizing and __condensing__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
 
  
 ]
@@ -87,10 +87,43 @@ class: inverse, left, middle
 
 # Aid organisations and donors commit to...
 
-See grand bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
+See Grand Bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
 
 >  Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment.
 
+
+???
+
+Notes -
+
+
+---
+
+## Joint Interagency Analysis Framework (JIAF)
+
+.pull-left[
+Implementing Grand Bargain Commitment, the [JIAF](https://www.jiaf.info) defines:
+
+ * a series of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&reserved=0)
+
+ * guidance for the [formula](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=40)
+
+ * a [theoretical framework](https://www.jiaf.info/wp-content/uploads/2021/05/Technical-briefing-note-v3-May-2021-1.pdf) to define the main components of humanitarian severity
+
+   1. Living Standards
+   2. Coping Mechanism
+   3. Physical & Mental Wellbeing
+
+]
+
+ 
+.pull-right[
+
+![Risk](images/jiaf.png) 
+
+
+
+]
 
 ???
 
@@ -200,14 +233,14 @@ Depending on the pace of the group, if we do not finish today we will org anise 
 In the development area,  there has been long focus to improve the quality of index through methodology nd user guide such as 
 [Handbook on Constructing Composite Indicators](https://www.oecd.org/sdd/42495745.pdf), the  [Ten Step Guide](https://knowledge4policy.ec.europa.eu/publication/your-10-step-pocket-guide-composite-indicators-scoreboards_en) & the [pocket Guide](https://knowledge4policy.ec.europa.eu/sites/default/files/10-step-pocket-guide-to-composite-indicators-and-scoreboards.pdf) .  
 
-To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), the following steps are required: 
+To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), as son as Humanitarian Severity is defined and indicators preselected, and before we can visualise the results, the following steps are required: 
 
  * Treat the data (missing value, outliers)
  * Explore the correlations
  * Standardize/normalize the data
  * Define the weight of each indicator
  * Develop an aggregation method
- * Assess robustness & sensitivity
+ * Check statistical coherence & assess robustness & sensitivity
 
 
  
@@ -223,7 +256,19 @@ To bring in the humanitarian world, the same level of statistical quality than i
 
 ???
 
-Notes -
+Notes - The 10 Steps are
+
+1. Define/map the concept
+2. Select the indicators
+3. Analyse and treat data
+4. Normalise indicators
+5. Weight indicators
+6. Aggregate indicators
+7. Check statistical coherence, multivariate analysis
+8. Uncertainty and sensitivity analysis
+9. Make sense of the data - compare with other measures and concepts
+10. Visualise results and communicate key messages
+
 
 ---
 
@@ -262,8 +307,9 @@ class: inverse, left, middle
 ## Indicator data 
 
  
+`IndData`: Each row is an observation and each column is a variable:
 
-Each row is an observation and each column is a variable:
+
 
 * `UnitName`: name of each unit of observation: municipality, province or whatever admin level used to measure severity.
 * `UnitCode`: unique code assigned to each unit (ideally pcode as registered in HDX). This can be then used to facilitate map creation
@@ -301,7 +347,7 @@ Some important rules and tips to keep in mind are:
 ## Document Indicators: 
 
 
-Indicator metadata
+`IndMeta`: Indicator metadata
 
 * `IndName`: Full name of the indicator, which will be used in display plots.
 * `IndCode`: Reference unique code for each indicator. 
@@ -334,7 +380,7 @@ Notes -
 
 ## Describe dimensions and nested levels: 
 
-Aggregation metadata: This data frame simply consists of four columns, all of which are required for assembly:
+`AggMeta`: Aggregation metadata: This data frame simply consists of four columns, all of which are required for assembly:
 
 * `AgLevel`: aggregation level (where 1 is indicator level, 2 is the first aggregation level, and so on 
 * `Code`: aggregation group codes must match the codes in the corresponding column in the indicator metadata aggregation columns.
@@ -362,25 +408,23 @@ The codes specified here must be unique and not coincide with any other codes us
 ## Load data and assemble
 
 .pull-left[
-To build a composite indicator,  we need three data frames, prepared and assembled in Excel according to a specific format with predefined column name:
+To build a composite indicator,  we need three data frames, prepared and assembled in Excel according to a specific format with predefined column name
 
-1. Indicator data
-2. Indicator metadata (_as described previously_)
-3. Aggregation metadata (_as described previously_)
+
 
 ```{r, collapse=T}
-library(dplyr)
 library(COINr)
+library(dplyr)
 library(reactable)
 library(magrittr)
-# install ggbiplot if you don't have it
-# library(devtools)
-# install_github("vqv/ggbiplot")
+# devtools::install_github("vqv/ggbiplot")
 library(ggbiplot)
 
-ASEM <- assemble(IndData = ASEMIndData,
-                 IndMeta = ASEMIndMeta,
-                 AggMeta = ASEMAggMeta)
+ASEM <- assemble(
+  IndData = ASEMIndData,
+  IndMeta = ASEMIndMeta,
+  AggMeta = ASEMAggMeta
+  )
 ``` 
 ]
 
@@ -388,18 +432,28 @@ ASEM <- assemble(IndData = ASEMIndData,
 
 .pull-right[
 
-Apart from building the COIN, `assemble()` does a few other things:
+All COINr functions work through a sequence:
 
-* It checks that indicator codes are consistent between indicator data and indicator metadata
-* It checks that required columns, such as indicator codes, are present
-* It returns some basic information about the data that was input, such as the number of indicators, the number of units, the number of aggregation levels and the groups in each level. This is done so you can check what you have entered, and that it agrees with your expectations.
+Function          |  Description
+------------------|  ---------------------------------------------
+`assemble()`      |  Assembles indicator data/metadata into a COIN
+`checkData()`     |  Data availability check and unit screening
+`denominate()`    |  Denominate (divide) indicators by other indicators
+`impute()`        |  Impute missing data using various methods
+`treat()`         |  Treat outliers with Winsorisation and transformations
+`normalise()`     |  Normalise data using various methods
+`aggregate()`     |  Aggregate indicators into hierarchical levels, up to index
 
 
 ]
 
 ???
 
-Notes -
+Notes -Apart from building the COIN, `assemble()` does a few other things:
+
+* It checks that indicator codes are consistent between indicator data and indicator metadata
+* It checks that required columns, such as indicator codes, are present
+* It returns some basic information about the data that was input, such as the number of indicators, the number of units, the number of aggregation levels and the groups in each level. This is done so you can check what you have entered, and that it agrees with your expectations.
 
  
 
@@ -680,11 +734,38 @@ ASEM <- normalise(ASEM,
 ]
 
 
+
 ???
 
 Notes -Again, we could visualise and check stats here but to keep things shorter we'll skip that for now.
 * `custom` allows to pass a custom function to apply to every indicator. For example, `npara$custom = function(x) {x/max(x, na.rm = T)}` would give the "fracmax" normalisation method described above.
 * `none` the indicator is not normalised (this is mainly useful for adjustments and sensitivity analysis).
+---
+
+
+## Weighting indicators: balancing importance
+
+Weights (defined in `agweights`) do need to be carefully considered, taking into account at least the relative conceptual importance of indicators, the statistical implications of the value selected for each indicator weights. All this needs to be communicated to the index end users. 
+
+Weights are defined manually within the orginal `IndMeta` & `AggMeta` and can be manually updated at any stage. 
+
+
+
+```{r ReAggregate}
+# put new weights in the COIN
+#ASEM$Parameters$Weights$NewWeights <- NewWeights
+# Aggregate again to get new results
+# ASEM <- aggregate(ASEM, 
+#             set = "Normalised", 
+#             agweights = "NewWeights")
+```
+
+The [Compind](https://rdrr.io/cran/Compind/) packages provided a series of method
+
+
+???
+
+Notes - 
 ---
 
 
@@ -1029,7 +1110,16 @@ The results show that the rank changes are not major at the index level, with a 
 
 ???
 
-Notes -  
+Notes -  *Sensitivity analysis* can help to quantify the uncertainty in the scores and rankings of the composite indicator, and to identify which assumptions are driving this uncertainty, and which are less important.
+
+To perform an uncertainty or sensitivity analysis, one must define several things:
+
+1. The system or model (in this case it is a composite indicator, represented as a COIN)
+2. Which assumptions to treat as uncertain
+3. The alternative values or distributions assigned to each uncertain assumption
+4. Which output or outputs to target (i.e. to calculate confidence intervals for)
+5. Methodological specifications for the sensitivity analysis itself, for example the method and the number of replications to run.
+
 
 ---
 class: inverse, left, middle
@@ -1048,32 +1138,16 @@ class: inverse, left, middle
 ## Index & Sub Dimensions
 
 
-
-.left-column[
- 
-
-We can now visualize our results. A good way at the index level is a stacked bar chart.
-
-```{r, eval=FALSE}
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
 COINr::iplotBar(ASEM, dset = "Aggregated", 
          isel = "Index", 
          aglev = 4, 
          stack_children = T)
 ```
- 
-]
 
---
-
-.right-column[
-
-```{r fig.width=2,  echo=FALSE, dev='ragg_png', dpi=300}
-COINr::iplotBar(ASEM, dset = "Aggregated", 
-         isel = "Index", 
-         aglev = 4, 
-         stack_children = T)
-```
-]
  
 ???
 
@@ -1084,28 +1158,16 @@ Notes -
 
 ## Sub Indices Interactions
 
-.left-column[
- 
- 
 
-```{r, eval=FALSE}
-COINr::iplotIndDist2(ASEM, 
-    dsets = "Aggregated", 
-    icodes = "Index")
-```
- 
-]
-
---
-
-.right-column[
-
-```{r fig.width=2,  echo=FALSE, dev='ragg_png', dpi=300}
+```{r fig.width=8, fig.asp = 0.8,   echo=TRUE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
 COINr::iplotIndDist2(ASEM, 
               dsets = "Aggregated", 
               icodes = "Index")
 ```
-]
+
  
  
  
@@ -1119,26 +1181,15 @@ Notes -
 
 ## Display the index on a Map
 
-.left-column[
-
-```{r, eval=FALSE}
-COINr::iplotMap(ASEM, 
-    dset = "Aggregated", 
-    isel = "Conn")
-```
- 
-]
-
---
-
-.right-column[
-
-```{r fig.width=2,  echo=FALSE, dev='ragg_png', dpi=300}
+```{r fig.width=8, fig.asp = 0.8,   echo=TRUE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
 COINr::iplotMap(ASEM, 
                 dset = "Aggregated", 
                 isel = "Conn")
 ```
-]
+
  
  
 

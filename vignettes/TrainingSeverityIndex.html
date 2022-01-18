@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Building Humanitarian Severity Index with R &amp; COINr</title>
+    <title>Building Humanitarian Severity Index with R, COINr &amp; Compind</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/core-js/shim.min.js"></script>
@@ -25,10 +25,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Building Humanitarian Severity Index with R &amp; COINr
+# Building Humanitarian Severity Index with R, COINr &amp; Compind
 ## Ensure Statistical Rigor &amp; Robustness
 ### 
-### Last update: 2022-01-17
+### Last update: 2022-01-18
 
 ---
 
@@ -55,7 +55,7 @@ Each index acts as a metric to quantify and to compare the situation of differen
 Crisis severity is indeed a complex, multi-factorial construct 
 
 
-CHALLENGE: Summarising and __condensing__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
+CHALLENGE: Summarizing and __condensing__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
 
  
 ]
@@ -81,10 +81,43 @@ class: inverse, left, middle
 
 # Aid organisations and donors commit to...
 
-See grand bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
+See Grand Bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
 
 &gt;  Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment.
 
+
+???
+
+Notes -
+
+
+---
+
+## Joint Interagency Analysis Framework (JIAF)
+
+.pull-left[
+Implementing Grand Bargain Commitment, the [JIAF](https://www.jiaf.info) defines:
+
+ * a series of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&amp;data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&amp;sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&amp;reserved=0)
+
+ * guidance for the [formula](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=40)
+
+ * a [theoretical framework](https://www.jiaf.info/wp-content/uploads/2021/05/Technical-briefing-note-v3-May-2021-1.pdf) to define the main components of humanitarian severity
+
+   1. Living Standards
+   2. Coping Mechanism
+   3. Physical &amp; Mental Wellbeing
+
+]
+
+ 
+.pull-right[
+
+![Risk](images/jiaf.png) 
+
+
+
+]
 
 ???
 
@@ -194,14 +227,14 @@ Depending on the pace of the group, if we do not finish today we will org anise 
 In the development area,  there has been long focus to improve the quality of index through methodology nd user guide such as 
 [Handbook on Constructing Composite Indicators](https://www.oecd.org/sdd/42495745.pdf), the  [Ten Step Guide](https://knowledge4policy.ec.europa.eu/publication/your-10-step-pocket-guide-composite-indicators-scoreboards_en) &amp; the [pocket Guide](https://knowledge4policy.ec.europa.eu/sites/default/files/10-step-pocket-guide-to-composite-indicators-and-scoreboards.pdf) .  
 
-To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), the following steps are required: 
+To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), as son as Humanitarian Severity is defined and indicators preselected, and before we can visualise the results, the following steps are required: 
 
  * Treat the data (missing value, outliers)
  * Explore the correlations
  * Standardize/normalize the data
  * Define the weight of each indicator
  * Develop an aggregation method
- * Assess robustness &amp; sensitivity
+ * Check statistical coherence &amp; assess robustness &amp; sensitivity
 
 
  
@@ -217,7 +250,19 @@ To bring in the humanitarian world, the same level of statistical quality than i
 
 ???
 
-Notes -
+Notes - The 10 Steps are
+
+1. Define/map the concept
+2. Select the indicators
+3. Analyse and treat data
+4. Normalise indicators
+5. Weight indicators
+6. Aggregate indicators
+7. Check statistical coherence, multivariate analysis
+8. Uncertainty and sensitivity analysis
+9. Make sense of the data - compare with other measures and concepts
+10. Visualise results and communicate key messages
+
 
 ---
 
@@ -256,8 +301,9 @@ class: inverse, left, middle
 ## Indicator data 
 
  
+`IndData`: Each row is an observation and each column is a variable:
 
-Each row is an observation and each column is a variable:
+
 
 * `UnitName`: name of each unit of observation: municipality, province or whatever admin level used to measure severity.
 * `UnitCode`: unique code assigned to each unit (ideally pcode as registered in HDX). This can be then used to facilitate map creation
@@ -295,7 +341,7 @@ Some important rules and tips to keep in mind are:
 ## Document Indicators: 
 
 
-Indicator metadata
+`IndMeta`: Indicator metadata
 
 * `IndName`: Full name of the indicator, which will be used in display plots.
 * `IndCode`: Reference unique code for each indicator. 
@@ -328,7 +374,7 @@ Notes -
 
 ## Describe dimensions and nested levels: 
 
-Aggregation metadata: This data frame simply consists of four columns, all of which are required for assembly:
+`AggMeta`: Aggregation metadata: This data frame simply consists of four columns, all of which are required for assembly:
 
 * `AgLevel`: aggregation level (where 1 is indicator level, 2 is the first aggregation level, and so on 
 * `Code`: aggregation group codes must match the codes in the corresponding column in the indicator metadata aggregation columns.
@@ -356,26 +402,24 @@ The codes specified here must be unique and not coincide with any other codes us
 ## Load data and assemble
 
 .pull-left[
-To build a composite indicator,  we need three data frames, prepared and assembled in Excel according to a specific format with predefined column name:
+To build a composite indicator,  we need three data frames, prepared and assembled in Excel according to a specific format with predefined column name
 
-1. Indicator data
-2. Indicator metadata (_as described previously_)
-3. Aggregation metadata (_as described previously_)
+
 
 
 ```r
-library(dplyr)
 library(COINr)
+library(dplyr)
 library(reactable)
 library(magrittr)
-# install ggbiplot if you don't have it
-# library(devtools)
-# install_github("vqv/ggbiplot")
+# devtools::install_github("vqv/ggbiplot")
 library(ggbiplot)
 
-ASEM &lt;- assemble(IndData = ASEMIndData,
-                 IndMeta = ASEMIndMeta,
-                 AggMeta = ASEMAggMeta)
+ASEM &lt;- assemble(
+  IndData = ASEMIndData,
+  IndMeta = ASEMIndMeta,
+  AggMeta = ASEMAggMeta
+  )
 ```
 ]
 
@@ -383,18 +427,28 @@ ASEM &lt;- assemble(IndData = ASEMIndData,
 
 .pull-right[
 
-Apart from building the COIN, `assemble()` does a few other things:
+All COINr functions work through a sequence:
 
-* It checks that indicator codes are consistent between indicator data and indicator metadata
-* It checks that required columns, such as indicator codes, are present
-* It returns some basic information about the data that was input, such as the number of indicators, the number of units, the number of aggregation levels and the groups in each level. This is done so you can check what you have entered, and that it agrees with your expectations.
+Function          |  Description
+------------------|  ---------------------------------------------
+`assemble()`      |  Assembles indicator data/metadata into a COIN
+`checkData()`     |  Data availability check and unit screening
+`denominate()`    |  Denominate (divide) indicators by other indicators
+`impute()`        |  Impute missing data using various methods
+`treat()`         |  Treat outliers with Winsorisation and transformations
+`normalise()`     |  Normalise data using various methods
+`aggregate()`     |  Aggregate indicators into hierarchical levels, up to index
 
 
 ]
 
 ???
 
-Notes -
+Notes -Apart from building the COIN, `assemble()` does a few other things:
+
+* It checks that indicator codes are consistent between indicator data and indicator metadata
+* It checks that required columns, such as indicator codes, are present
+* It returns some basic information about the data that was input, such as the number of indicators, the number of units, the number of aggregation levels and the groups in each level. This is done so you can check what you have entered, and that it agrees with your expectations.
 
  
 
@@ -641,11 +695,39 @@ ASEM &lt;- normalise(ASEM,
 ]
 
 
+
 ???
 
 Notes -Again, we could visualise and check stats here but to keep things shorter we'll skip that for now.
 * `custom` allows to pass a custom function to apply to every indicator. For example, `npara$custom = function(x) {x/max(x, na.rm = T)}` would give the "fracmax" normalisation method described above.
 * `none` the indicator is not normalised (this is mainly useful for adjustments and sensitivity analysis).
+---
+
+
+## Weighting indicators: balancing importance
+
+Weights (defined in `agweights`) do need to be carefully considered, taking into account at least the relative conceptual importance of indicators, the statistical implications of the value selected for each indicator weights. All this needs to be communicated to the index end users. 
+
+Weights are defined manually within the orginal `IndMeta` &amp; `AggMeta` and can be manually updated at any stage. 
+
+
+
+
+```r
+# put new weights in the COIN
+#ASEM$Parameters$Weights$NewWeights &lt;- NewWeights
+# Aggregate again to get new results
+# ASEM &lt;- aggregate(ASEM, 
+#             set = "Normalised", 
+#             agweights = "NewWeights")
+```
+
+The [Compind](https://rdrr.io/cran/Compind/) packages provided a series of method
+
+
+???
+
+Notes - 
 ---
 
 
@@ -967,8 +1049,8 @@ COINr::plotframework(ASEM)
 
 .right-column[
 
-<div id="htmlwidget-099beaa009bb6d8ea992" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-099beaa009bb6d8ea992">{"x":{"visdat":{"7c4e7a481d20":["function () ","plotlyVisDat"]},"cur_data":"7c4e7a481d20","attrs":{"7c4e7a481d20":{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f4fa80b06cae51e9469f" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4fa80b06cae51e9469f">{"x":{"visdat":{"6d5a48e907f8":["function () ","plotlyVisDat"]},"cur_data":"6d5a48e907f8","attrs":{"6d5a48e907f8":{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"sunburst"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"labels":["Goods","Services","FDI","PRemit","ForPort","CostImpEx","Tariff","TBTs","TIRcon","RTAs","Visa","StMob","Research","Pat","CultServ","CultGood","Tourist","MigStock","Lang","LPI","Flights","Ship","Bord","Elec","Gas","ConSpeed","Cov4G","Embs","IGOs","UNVote","Renew","PrimEner","CO2","MatCon","Forest","Poverty","Palma","TertGrad","FreePress","TolMin","NGOs","CPI","FemLab","WomParl","PubDebt","PrivDebt","GDPGrow","RDExp","NEET","ConEcFin","Instit","P2P","Physical","Political","Environ","Social","SusEcFin","Conn","Sust","Index"],"parents":["ConEcFin","ConEcFin","ConEcFin","ConEcFin","ConEcFin","Instit","Instit","Instit","Instit","Instit","Instit","P2P","P2P","P2P","P2P","P2P","P2P","P2P","P2P","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Physical","Political","Political","Political","Environ","Environ","Environ","Environ","Environ","Social","Social","Social","Social","Social","Social","Social","Social","Social","SusEcFin","SusEcFin","SusEcFin","SusEcFin","SusEcFin","Conn","Conn","Conn","Conn","Conn","Sust","Sust","Sust","Index","Index",""],"values":[0.02,0.02,0.02,0.02,0.02,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0166666666666667,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0185185185185185,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.0333333333333333,0.1,0.1,0.1,0.1,0.1,0.166666666666667,0.166666666666667,0.166666666666667,0.5,0.5,1],"branchvalues":"total","type":"sunburst","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(255,255,255,1)"}},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 ]
 
 
@@ -1139,7 +1221,16 @@ The results show that the rank changes are not major at the index level, with a 
 
 ???
 
-Notes -  
+Notes -  *Sensitivity analysis* can help to quantify the uncertainty in the scores and rankings of the composite indicator, and to identify which assumptions are driving this uncertainty, and which are less important.
+
+To perform an uncertainty or sensitivity analysis, one must define several things:
+
+1. The system or model (in this case it is a composite indicator, represented as a COIN)
+2. Which assumptions to treat as uncertain
+3. The alternative values or distributions assigned to each uncertain assumption
+4. Which output or outputs to target (i.e. to calculate confidence intervals for)
+5. Methodological specifications for the sensitivity analysis itself, for example the method and the number of replications to run.
+
 
 ---
 class: inverse, left, middle
@@ -1158,29 +1249,9 @@ class: inverse, left, middle
 ## Index &amp; Sub Dimensions
 
 
+<div id="htmlwidget-f4fa80b06cae51e9469f" style="width:900px;height:556.2px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f4fa80b06cae51e9469f">{"x":{"visdat":{"6a21265f904e":["function () ","plotlyVisDat"]},"cur_data":"6a21265f904e","attrs":{"6a21265f904e":{"x":{},"y":{},"key":{},"name":"Conn","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"6a21265f904e.1":{"x":{},"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":{},"name":"Sust","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Sustainable Connectivity","y":0.95},"yaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false},"xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"array","categoryarray":{"Index":[68.621403668364,65.1651358926319,65.0410383080279,64.6071663752533,64.1121692355648,63.224823201446,62.3642937416572,61.6868684841489,61.1295968310016,60.7497051038254,60.5137694239751,60.2709945407649,59.8030710567783,59.1189300300464,58.2416267711836,57.2939257480353,56.8523358014573,56.1034368331307,55.8882429293819,55.7937082339417,55.3573637246148,55.1587365396442,55.146816044091,55.0829063362119,54.7648797130732,54.2959872906309,54.0784920389337,52.3019881561583,51.6452608367962,50.9378852194357,50.4324063148894,49.8521681997249,49.3797777604972,47.4949280469203,45.959441786501,43.2854587144294,43.2017559236092,41.7270225080216,41.7237550660752,41.7198537081406,41.1580879386198,40.1595694805621,40.1268409828404,40.0841372709449,39.7607259845468,39.4695646071414,39.0616577624139,38.9191348380666,38.2199505267257,37.806472915641,35.731036156064]},"type":"category"},"barmode":"stack","hovermode":"closest","showlegend":true},"source":"barclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[62.7879617199478,61.9398723576584,57.0974895685389,57.4355053198748,63.9901642314296,53.8747393274374,55.4300181160593,66.5553995441179,54.3493607627902,52.5277428069315,55.2349061335593,59.5781922559545,61.9069528310472,52.1354995771061,52.8104446454481,48.1105857417282,52.0514584190484,50.1418764487134,50.9086036314699,52.3059845443379,53.5015247692406,50.404368988425,47.9876649965869,49.5383942064484,43.8760223317633,48.2518738858441,49.0904971083045,47.7436568351534,51.7799237445284,44.7182237806758,43.5652636498673,45.3147665624098,39.2362179822402,36.96893253234,38.3648083260859,30.954411649716,30.4092650759974,43.3508340450876,27.1281223982067,42.3169256763717,32.027377920802,28.5951573015857,20.5882278542428,27.873507966043,23.288220717606,30.8766429111389,30.9665349519263,16.9684144112457,28.2395983229804,21.9596090936419,29.985845667267],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Conn","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Sust","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
-.left-column[
- 
-
-We can now visualize our results. A good way at the index level is a stacked bar chart.
-
-
-```r
-COINr::iplotBar(ASEM, dset = "Aggregated", 
-         isel = "Index", 
-         aglev = 4, 
-         stack_children = T)
-```
- 
-]
-
---
-
-.right-column[
-
-<div id="htmlwidget-91195e52a788f0c02ac9" style="width:600px;height:370.8px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-91195e52a788f0c02ac9">{"x":{"visdat":{"7fa130f6f879":["function () ","plotlyVisDat"]},"cur_data":"7fa130f6f879","attrs":{"7fa130f6f879":{"x":{},"y":{},"key":{},"name":"Conn","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar"},"7fa130f6f879.1":{"x":{},"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":{},"name":"Sust","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"bar","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":{"text":"Sustainable Connectivity","y":0.95},"yaxis":{"domain":[0,1],"automargin":true,"title":"","showticklabels":false},"xaxis":{"domain":[0,1],"automargin":true,"title":"","categoryorder":"array","categoryarray":{"Index":[68.621403668364,65.1651358926319,65.0410383080279,64.6071663752533,64.1121692355648,63.224823201446,62.3642937416572,61.6868684841489,61.1295968310016,60.7497051038254,60.5137694239751,60.2709945407649,59.8030710567783,59.1189300300464,58.2416267711836,57.2939257480353,56.8523358014573,56.1034368331307,55.8882429293819,55.7937082339417,55.3573637246148,55.1587365396442,55.146816044091,55.0829063362119,54.7648797130732,54.2959872906309,54.0784920389337,52.3019881561583,51.6452608367962,50.9378852194357,50.4324063148894,49.8521681997249,49.3797777604972,47.4949280469203,45.959441786501,43.2854587144294,43.2017559236092,41.7270225080216,41.7237550660752,41.7198537081406,41.1580879386198,40.1595694805621,40.1268409828404,40.0841372709449,39.7607259845468,39.4695646071414,39.0616577624139,38.9191348380666,38.2199505267257,37.806472915641,35.731036156064]},"type":"category"},"barmode":"stack","hovermode":"closest","showlegend":true},"source":"barclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[62.7879617199478,61.9398723576584,57.0974895685389,57.4355053198748,63.9901642314296,53.8747393274374,55.4300181160593,66.5553995441179,54.3493607627902,52.5277428069315,55.2349061335593,59.5781922559545,61.9069528310472,52.1354995771061,52.8104446454481,48.1105857417282,52.0514584190484,50.1418764487134,50.9086036314699,52.3059845443379,53.5015247692406,50.404368988425,47.9876649965869,49.5383942064484,43.8760223317633,48.2518738858441,49.0904971083045,47.7436568351534,51.7799237445284,44.7182237806758,43.5652636498673,45.3147665624098,39.2362179822402,36.96893253234,38.3648083260859,30.954411649716,30.4092650759974,43.3508340450876,27.1281223982067,42.3169256763717,32.027377920802,28.5951573015857,20.5882278542428,27.873507966043,23.288220717606,30.8766429111389,30.9665349519263,16.9684144112457,28.2395983229804,21.9596090936419,29.985845667267],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Conn","type":"bar","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null},{"x":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"y":[74.4548456167802,68.3903994276055,72.984587047517,71.7788274306318,64.2341742396999,72.5749070754546,69.2985693672551,56.81833742418,67.9098328992129,68.9716674007193,65.7926327143908,60.9637968255754,57.6991892825095,66.1023604829868,63.6728088969191,66.4772657543424,61.6532131838662,62.0649972175479,60.8678822272939,59.2814319235455,57.2132026799891,59.9131040908634,62.3059670915951,60.6274184659754,65.6537370943831,60.3401006954177,59.0664869695629,56.8603194771632,51.5105979290639,57.1575466581957,57.2995489799116,54.3895698370399,59.5233375387543,58.0209235615006,53.554075246916,55.6165057791429,55.994246771221,40.1032109709557,56.3193877339437,41.1227817399095,50.2887979564375,51.7239816595384,59.665454111438,52.2947665758468,56.2332312514876,48.0624863031439,47.1567805729016,60.8698552648875,48.2003027304709,53.6533367376402,41.476226644861],"key":["CHE","NLD","DNK","NOR","BEL","SWE","AUT","LUX","DEU","SVN","IRL","MLT","SGP","FIN","GBR","LTU","CZE","HRV","FRA","HUN","EST","SVK","LVA","ESP","ROU","POL","PRT","ITA","CYP","BGR","KOR","GRC","NZL","JPN","AUS","VNM","KHM","BRN","PHL","MYS","THA","IND","MMR","IDN","LAO","MNG","KAZ","BGD","CHN","PAK","RUS"],"name":"Sust","type":"bar","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-]
  
 ???
 
@@ -1191,26 +1262,20 @@ Notes -
 
 ## Sub Indices Interactions
 
-.left-column[
- 
- 
 
 
 ```r
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
 COINr::iplotIndDist2(ASEM, 
-    dsets = "Aggregated", 
-    icodes = "Index")
+              dsets = "Aggregated", 
+              icodes = "Index")
 ```
- 
-]
 
---
+<div id="htmlwidget-de6e874a84f330101707" style="width:2400px;height:1920px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-de6e874a84f330101707">{"x":{"visdat":{"69c65f970aaa":["function () ","plotlyVisDat"]},"cur_data":"69c65f970aaa","attrs":{"69c65f970aaa":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"69c65f970aaa.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"yaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[40.7147978302105,80.0790829492294,47.1178543410879,29.6595542299126,21.5525492605235,88.8553124519079,24.3804882124031,75.3754890317444,20.7554972641161,15.0864687872643,29.5283169130779,11.5609768118045,87.2032124615804,23.0805774954351,15.7540188845476,62.5592560718532,59.6935324437879,27.8860822178772,75.179034652212,60.1300025526122,17.8605021462841,44.7279167208669,25.9424245175779,34.1151202706534,100,76.7590567226543,16.2628895134529,22.6777229358393,33.0443479319491,11.5808067789694,6.49608314755034,8.83072346888023,35.288121363973,63.2943152409557,1.73181451143796,0,7.70970515433294,1.42407266048311,19.4924394427823,19.1743392104261,30.5551357206689,56.3972144036942,39.8835633758377,24.7038370008743,8.99879169192228,2.25795082759758,18.1757885716913,10.3132031797815,88.2538120920766,39.4852273246478,82.3897744174304],"y":[32.966091561691,58.6989070002964,28.3984206626414,41.5789859430416,100,25.4588432615058,45.9615309377953,55.3699678161877,25.8834491770973,21.1068590367762,17.6625205478115,22.0742882471442,37.714448289341,100,9.70806589779169,31.0895813109849,34.6609529045343,100,100,56.4284132131985,25.7500080622608,18.9397281887691,24.2365836450423,17.6623445572814,19.6935178192904,31.1698113934496,16.7006920536502,30.2060795010617,37.5903068664518,21.7382469900896,6.1507141012756,0.928181284178657,20.3208459556872,34.7284399244394,2.72186404352122,12.6586110627088,2.64152643768182,4.47162904309004,11.9167064277242,14.3345062290365,6.69379014370325,28.7038906885967,28.4199375588891,7.77020220182281,14.2336295581721,0,19.7108198152618,8.2379417110495,100,31.3969297838429,15.2245559395681],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
-.right-column[
-
-<div id="htmlwidget-3a6c18fdacf57ab01955" style="width:600px;height:370.8px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3a6c18fdacf57ab01955">{"x":{"visdat":{"7fa152f68d8f":["function () ","plotlyVisDat"]},"cur_data":"7fa152f68d8f","attrs":{"7fa152f68d8f":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"7fa152f68d8f.1":{"mode":"markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","x":{},"y":{},"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":"text","marker":{"size":15},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"yaxis":{"domain":[0,1],"automargin":true,"title":["Trade in goods <br> ()","Trade in services <br> ()","Foreign direct investment <br> ()","Personal remittances (received and paid) <br> ()","Foreign portfolio investment liabilities and assets <br> ()","Cost to export/import <br> ()","Mean tariff rate <br> ()","Technical barriers to trade <br> ()","Signatory of TIR Convention <br> ()","Regional trade agreements <br> ()","Visa-free or visa-on-arrival <br> ()","International student mobility in tertiary education <br> ()","Research outputs with international collaborations <br> ()","Patents with foreign co-inventor <br> ()","Trade in cultural services <br> ()","Trade in cultural goods <br> ()","Tourist arrivals at national borders <br> ()","Migrant stock <br> ()","Common languages users <br> ()","Logistics Performance Index <br> ()","International flights passenger capacity <br> ()","Liner Shipping Connectivity Index <br> ()","Border crossings <br> ()","Trade in electricity <br> ()","Trade in gas <br> ()","Average connection speed <br> ()","Den_Pop covered by at least a 4G mobile network <br> ()","Embassies network <br> ()","Participation in international intergovernmental organisations <br> ()","UN voting alignment <br> ()","Renewable energy in total final energy consumption <br> ()","Primary energy use per GDP <br> ()","CO2 emissions per capita <br> ()","Domestic material consumption per capita <br> ()","Net forest loss <br> ()","Den_Pop living below the intenational poverty line <br> ()","Palma Index <br> ()","Tertiary graduates <br> ()","Freedom of the press <br> ()","Tolerance for minorities <br> ()","Presence of international non-governmental organisations <br> ()","Corruption Perceptions Index <br> ()","Female labour-force participation <br> ()","Women's participation in national parliaments <br> ()","Public debt as a percentage of GDP <br> ()","Private debt, loans and debt securities as percentage of GDP <br> ()","GDP per capita growth <br> ()","R&D expenditure as a percentage of GDP <br> ()","Proportion of youth not in education, employment or training <br> ()"]},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"mode":"markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"mode":"markers","type":"scatter","x":[40.7147978302105,80.0790829492294,47.1178543410879,29.6595542299126,21.5525492605235,88.8553124519079,24.3804882124031,75.3754890317444,20.7554972641161,15.0864687872643,29.5283169130779,11.5609768118045,87.2032124615804,23.0805774954351,15.7540188845476,62.5592560718532,59.6935324437879,27.8860822178772,75.179034652212,60.1300025526122,17.8605021462841,44.7279167208669,25.9424245175779,34.1151202706534,100,76.7590567226543,16.2628895134529,22.6777229358393,33.0443479319491,11.5808067789694,6.49608314755034,8.83072346888023,35.288121363973,63.2943152409557,1.73181451143796,0,7.70970515433294,1.42407266048311,19.4924394427823,19.1743392104261,30.5551357206689,56.3972144036942,39.8835633758377,24.7038370008743,8.99879169192228,2.25795082759758,18.1757885716913,10.3132031797815,88.2538120920766,39.4852273246478,82.3897744174304],"y":[32.966091561691,58.6989070002964,28.3984206626414,41.5789859430416,100,25.4588432615058,45.9615309377953,55.3699678161877,25.8834491770973,21.1068590367762,17.6625205478115,22.0742882471442,37.714448289341,100,9.70806589779169,31.0895813109849,34.6609529045343,100,100,56.4284132131985,25.7500080622608,18.9397281887691,24.2365836450423,17.6623445572814,19.6935178192904,31.1698113934496,16.7006920536502,30.2060795010617,37.5903068664518,21.7382469900896,6.1507141012756,0.928181284178657,20.3208459556872,34.7284399244394,2.72186404352122,12.6586110627088,2.64152643768182,4.47162904309004,11.9167064277242,14.3345062290365,6.69379014370325,28.7038906885967,28.4199375588891,7.77020220182281,14.2336295581721,0,19.7108198152618,8.2379417110495,100,31.3969297838429,15.2245559395681],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"marker":{"color":"rgba(255,127,14,1)","size":15,"line":{"color":"rgba(255,127,14,1)"}},"showlegend":false,"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-]
  
  
  
@@ -1224,24 +1289,19 @@ Notes -
 
 ## Display the index on a Map
 
-.left-column[
-
 
 ```r
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
 COINr::iplotMap(ASEM, 
-    dset = "Aggregated", 
-    isel = "Conn")
+                dset = "Aggregated", 
+                isel = "Conn")
 ```
- 
-]
 
---
+<div id="htmlwidget-91195e52a788f0c02ac9" style="width:2400px;height:1920px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-91195e52a788f0c02ac9">{"x":{"visdat":{"69c61e9c11c6":["function () ","plotlyVisDat"]},"cur_data":"69c61e9c11c6","attrs":{"69c61e9c11c6":{"z":{},"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":{},"colorscale":"Greens","key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"showscale":true,"reversescale":true,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"zaxis":{"title":"get(isel)"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5},"title":"Connectivity","geo":{"showframe":false,"showcoastlines":true,"projection":{"type":"Mercator"},"showcountries":false,"bgcolor":"rgba(255,255,255,0)","showframe.1":false,"showland":true,"landcolor":"rgba(229,229,229,1)","countrycolor":"rgba(255,255,255,1)","coastlinecolor":"rgba(255,255,255,1)"}},"source":"mapclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"Conn","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":"Greens","showscale":true,"z":[55.4300181160593,63.9901642314296,44.7182237806758,50.1418764487134,51.7799237445284,52.0514584190484,57.0974895685389,53.5015247692406,52.1354995771061,50.9086036314699,54.3493607627902,45.3147665624098,52.3059845443379,55.2349061335593,47.7436568351534,47.9876649965869,48.1105857417282,66.5553995441179,59.5781922559545,61.9398723576584,57.4355053198748,48.2518738858441,49.0904971083045,43.8760223317633,50.404368988425,52.5277428069315,49.5383942064484,53.8747393274374,62.7879617199478,52.8104446454481,38.3648083260859,16.9684144112457,43.3508340450876,30.4092650759974,28.2395983229804,28.5951573015857,27.873507966043,36.96893253234,30.9665349519263,43.5652636498673,23.288220717606,42.3169256763717,30.8766429111389,20.5882278542428,39.2362179822402,21.9596090936419,27.1281223982067,29.985845667267,61.9069528310472,32.027377920802,30.954411649716],"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"reversescale":true,"type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
-.right-column[
-
-<div id="htmlwidget-099beaa009bb6d8ea992" style="width:600px;height:370.8px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-099beaa009bb6d8ea992">{"x":{"visdat":{"7fa13e3c47c6":["function () ","plotlyVisDat"]},"cur_data":"7fa13e3c47c6","attrs":{"7fa13e3c47c6":{"z":{},"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":{},"colorscale":"Greens","key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"showscale":true,"reversescale":true,"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"choropleth"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"zaxis":{"title":"get(isel)"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5},"title":"Connectivity","geo":{"showframe":false,"showcoastlines":true,"projection":{"type":"Mercator"},"showcountries":false,"bgcolor":"rgba(255,255,255,0)","showframe.1":false,"showland":true,"landcolor":"rgba(229,229,229,1)","countrycolor":"rgba(255,255,255,1)","coastlinecolor":"rgba(255,255,255,1)"}},"source":"mapclick","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"Conn","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":"Greens","showscale":true,"z":[55.4300181160593,63.9901642314296,44.7182237806758,50.1418764487134,51.7799237445284,52.0514584190484,57.0974895685389,53.5015247692406,52.1354995771061,50.9086036314699,54.3493607627902,45.3147665624098,52.3059845443379,55.2349061335593,47.7436568351534,47.9876649965869,48.1105857417282,66.5553995441179,59.5781922559545,61.9398723576584,57.4355053198748,48.2518738858441,49.0904971083045,43.8760223317633,50.404368988425,52.5277428069315,49.5383942064484,53.8747393274374,62.7879617199478,52.8104446454481,38.3648083260859,16.9684144112457,43.3508340450876,30.4092650759974,28.2395983229804,28.5951573015857,27.873507966043,36.96893253234,30.9665349519263,43.5652636498673,23.288220717606,42.3169256763717,30.8766429111389,20.5882278542428,39.2362179822402,21.9596090936419,27.1281223982067,29.985845667267,61.9069528310472,32.027377920802,30.954411649716],"locations":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"text":["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","Switzerland","United Kingdom","Australia","Bangladesh","Brunei Darussalam","Cambodia","China","India","Indonesia","Japan","Kazakhstan","Korea","Lao PDR","Malaysia","Mongolia","Myanmar","New Zealand","Pakistan","Philippines","Russian Federation","Singapore","Thailand","Vietnam"],"key":["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","NOR","POL","PRT","ROU","SVK","SVN","ESP","SWE","CHE","GBR","AUS","BGD","BRN","KHM","CHN","IND","IDN","JPN","KAZ","KOR","LAO","MYS","MNG","MMR","NZL","PAK","PHL","RUS","SGP","THA","VNM"],"reversescale":true,"type":"choropleth","marker":{"line":{"color":"rgba(31,119,180,1)"}},"_isNestedKey":false,"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-]
  
  
 
