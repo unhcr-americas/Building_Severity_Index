@@ -54,14 +54,11 @@ knitr::opts_chunk$set(cache = TRUE,
 
 .pull-left[
 
-Humanitarian response actors evaluate crisis severity through one consolidated index or multiple sectoral indices.
-
-Each index acts as a metric to quantify and to compare the situation of different admin units within a country. 
-
-Crisis severity is indeed a complex, multi-factorial construct 
 
 
-CHALLENGE: Summarizing and __condensing__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
+> "_To support the prioritization of needs, Humanitarian Country Teams have the option to use a standardized tool based on a severity ranking approach. The tool provides a method and structure to prioritize needs by categorising and weighing indicators along geographical areas, sectors, inter-sectoral aspects and demographics._" [Humanitarian Needs Comparison Tool](https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/documents/files/Comparison Tool Guidance 2015 FINAL-EN.pdf#page=12)
+
+Crisis severity is indeed a complex, multi-factorial construct -> The challenge is to summarize and __condense__ the information of a plurality of underlying indicators into a single measure, in a way that __accurately__ reflects the underlying concept
 
  
 ]
@@ -69,7 +66,7 @@ CHALLENGE: Summarizing and __condensing__ the information of a plurality of unde
  
 .pull-right[
  
-Example from JRC Global [INFORM]((http://www.inform-index.org)), an index designed to assess humanitarian risks for 191 countries at the national level. 
+Each index acts as a metric to quantify and to compare the situation of different admin units. Example from JRC Global [INFORM]((http://www.inform-index.org), an index designed to assess humanitarian risks for 191 countries at the national level. 
 
 
 ![Risk](images/inform.png)  
@@ -78,7 +75,7 @@ Example from JRC Global [INFORM]((http://www.inform-index.org)), an index design
 ]
 
 ???
-Depending on the pace of the group, if we do not finish today we will org anise a second session 
+https://drmkc.jrc.ec.europa.eu/inform-index/Portals/0/InfoRM/Severity/INFORM%20Severity%20Index%20User%20Guide%20v01%20October%202020.pdf 
 
 
 
@@ -104,7 +101,7 @@ Notes -
 .pull-left[
 Implementing Grand Bargain Commitment, the [JIAF](https://www.jiaf.info) defines:
 
- * a series of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&reserved=0)
+ * a list of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&reserved=0)
 
  * guidance for the [formula](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=40)
 
@@ -141,11 +138,12 @@ Notes -
 
 Conceptual and statistical flaws in the calculation of Humanitarian Severity can greatly limit its usefulness
  
- * Are indicators correctly depicting the severity?
  
- * Are all indicators "really useful" to the final measurement?
+ * Are indicators __substituable__? i.e. shall we allow one indicator to compensate another one?
+ 
+ * Are all indicators "really useful" to the final measurement, i.e. correctly __depicting__ the severity?
   
- * Does the way the indicators are 'assembled" together correctly reflect their true respective importance?
+ * Does the way the indicators are 'assembled" together correctly reflect their true respective __importance__?
 
  * Can the methodology be fully __positively audited__?
  
@@ -196,13 +194,13 @@ https://qualitysafety.bmj.com/content/28/4/338
 In the development area,  there has been long focus to improve the quality of index through methodology nd user guide such as 
 [Handbook on Constructing Composite Indicators](https://www.oecd.org/sdd/42495745.pdf), the  [Ten Step Guide](https://knowledge4policy.ec.europa.eu/publication/your-10-step-pocket-guide-composite-indicators-scoreboards_en) & the [pocket Guide](https://knowledge4policy.ec.europa.eu/sites/default/files/10-step-pocket-guide-to-composite-indicators-and-scoreboards.pdf) .  
 
-To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), as son as Humanitarian Severity is defined and indicators preselected, and before we can visualise the results, the following steps are required: 
+To bring in the humanitarian world, the same level of statistical quality than in development (aka making the "__nexus__"), as soon as Humanitarian Severity is defined and indicators preselected, and before we can visualise the results, the following steps are required: 
 
  * Treat the data (missing value, outliers)
  * Explore the correlations
  * Standardize/normalize the data
  * Define the weight of each indicator
- * Develop an aggregation method
+ * Agree on an aggregation method
  * Check statistical coherence & assess robustness & sensitivity
 
 
@@ -234,7 +232,9 @@ Notes - The 10 Steps are
 
 ---
 
-## Using scripts rather than click
+## Using scripts rather than clicks
+
+> Shall severity index "_be easily calculable in Excel_" in order to adjust to "_realities and necessities of the field_"? 
 
 .pull-left[
 
@@ -244,22 +244,25 @@ __Clicking in Excel__ does not allow to record and document processes in a syste
  * The sequence of the data treatment
  * The value of the data at each steps
  * Different options in the calculation that can be compared
- * Visualisations of the index measurement quality
+ * Visualisation of the index measurement quality
 
 ]
 
 
 .pull-right[
-__Scripting in R__ not only address the inherent limitation of Excel but also ensure:
+__Scripting in R__ not only address the inherent limitation of Excel but also ensures:
  * Full documentation in a predictable format
- * Automatic index audit functions
+ * Automatic index auditing functions
  * Quick generation of predefined visuals
  * Easy peer review for perfect transparency
 
 ]
+
+The [Humanitarian-user-group](https://humanitarian-user-group.github.io/post/first-meeting/) includes now 480 participants from multiple organisations and parts of the world.
  
 ???
  
+Current guidance were provided with a complex and heavy [excel tool](https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/documents/files/Nigeria_HNO_Comparison_Tool_v0.1.zip) that includes many macros script and 13 pages of [narrative explanation](https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/documents/files/Comparison%20Tool%20Technical%20Instructions.pdf) to explain how it works.
  
 
 ---
@@ -456,12 +459,15 @@ The codes specified here must be unique and not coincide with any other codes us
 
 ## Load data and assemble
 
+> "_All original datasets should be uploaded on the Humanitarian Data Exchange platform for transparency purposes and to ensure reproducibility of results_" [JIAF ](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=44)
+
 .pull-left[
-To build a composite indicator,  we need three data frames, __prepared and assembled in Excel__ according to a specific format with predefined column name
+To build a composite indicator,  the analysts needs to __prepare and assemble in Excel__  three data frames, according to a specific format with predefined column name.
 
 
 
-```{r, collapse=T}
+
+```{r, collapse=T, comment='#', eval=FALSE}
 library(COINr)
 library(dplyr)
 library(reactable)
@@ -477,11 +483,25 @@ ASEM <- assemble(
 ``` 
 ]
 
---
 
 .pull-right[
 
 
+```{r, echo=FALSE}
+
+library(COINr)
+library(dplyr)
+library(reactable)
+library(magrittr)
+# devtools::install_github("vqv/ggbiplot")
+library(ggbiplot)
+
+ASEM <- assemble(
+  IndData = ASEMIndData,
+  IndMeta = ASEMIndMeta,
+  AggMeta = ASEMAggMeta
+  )
+``` 
 
 ]
 
@@ -545,7 +565,6 @@ ASEM$Analysis$Raw$StatTable %>%
  
 ]
 
---
 
 .pull-right[
 
@@ -781,7 +800,9 @@ Notes -Again, we could visualise and check stats here but to keep things shorter
 ---
 
 
-## Weighting indicators: balancing importance
+## Equal weighting does not mean equal importance
+
+> "_If strategic decisions require a consideration of the relative weight / importance of each domain, this should occur during the joint analysis stage, using the domain-specific outputs of the comparison tool as a guide. If variable domain-weighting within the model itself is absolutely essential, it could be adjusted in individual circumstances._" [IASC, 2015](https://www.humanitarianresponse.info/sites/www.humanitarianresponse.info/files/documents/files/Comparison%20Tool%20Guidance%202015%20FINAL-EN.pdf#page=12)
 
 Weights (defined in `agweights`) do need to be carefully considered, taking into account at least the relative conceptual importance of indicators, the statistical implications of the value selected for each indicator weights. All this needs to be communicated to the index end users. 
 
@@ -798,16 +819,23 @@ Weights are defined manually within the orginal `IndMeta` & `AggMeta` and can be
 #             agweights = "NewWeights")
 ```
 
-The [Compind](https://rdrr.io/cran/Compind/) packages provided a series of method
+The [Compind](https://rdrr.io/cran/Compind/) packages provided a series of methods.
 
 
 ???
 
-Notes - 
+Notes - Question the IASC statement
+
+"The equal weighting of domains has been implemented deliberately to prevent potentially long and fruitless discussions which could limit the tool’s ability to achieve consensus. "
+
+See Compind tutorial
+https://humanitarian-user-group.github.io/post/compositeindicator/
+
+
 ---
 
 
-## Aggregation of all indicators: which method to use?
+## Aggregation of all indicators: Compensability
 
 
 
@@ -826,16 +854,17 @@ ASEM <- aggregate(ASEM,
 
 
 .right-column[
-The main options are: 
- * `arith_mean` The most straightforward and widely-used approach to aggregation is the **weighted arithmetic mean**.
+Deciding on the aggregation method reflects assumption in terms of compensability between indicators: 
+ * `arith_mean`:  **weighted arithmetic mean** or additive combination may be perceived as easy-to-interpret but implies full compensability.
  
- * `geom_mean` the **weighted geometric mean** uses the product of the indicators rather than the sum
+ * `geom_mean` the **weighted geometric mean** uses the product of the indicators rather than the sum and prevent compensability
 
- * `harm_mean` The [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means) also called **weighted harmonic mean**,  uses the mean of the reciprocals of the indicators. It is the the least compensatory of the the three means, even less so than the geometric mean. It is often used for taking the mean of rates and ratios.
+ * `harm_mean` **weighted harmonic mean**, also called [Pythagorean means](https://en.wikipedia.org/wiki/Pythagorean_means) is the the least compensatory of the the three means, and is often used when making the mean of rates and ratios.
 
  * `median` The *weighted median* is defined by ordering indicator values, then picking the value which has half of the assigned weight above it, and half below it.
 
  * `copeland` The [Copeland method](https://en.wikipedia.org/wiki/Copeland%27s_method) is based pairwise comparisons between units, calculated from an *outranking matrix* 
+ 
 ]
  
 
@@ -1275,9 +1304,9 @@ class: inverse, left, middle
 
 # Conclusion. Reproducibility to ensure transparency
 
- * Strictly Use "curated & published" data for your sub-indicators - Data should be available on HDX / https://data.humdata.org
+ * Strictly Use "curated & published" data for your sub-indicators - Data should be available on Humanitarian Data eXchange @ data.humdata.org
  
- * Put Code into github to document your process - the data structure required for the packages allows for better discoverability!
+ * Document your process with R Code & put it into Github - The data structure required for the packages allows for better discoverability!
  
  * Call for peer and/or independent review to cover yourself! when using scripted reproducible analysis, this should be very quick!!!
 
