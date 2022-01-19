@@ -86,7 +86,7 @@ class: inverse, left, middle
 
 See Grand Bargain Commitment #5: [Improve joint and impartial needs assessments](https://interagencystandingcommittee.org/improve-joint-and-impartial-needs-assessments)
 
->  Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment.
+>  '_Dedicate resources and involve independent specialists within the clusters to strengthen [..] analysis in a __fully transparent__, collaborative process, which includes a brief summary of the methodological and analytical limitations of the assessment._"
 
 
 ???
@@ -270,17 +270,19 @@ class: left, middle
 
 # Learning objectives
 
-This session is a tutorial to show you how to go through each steps required to do the calculation correctly.
+This session is a tutorial to show you how to go through each steps required to do the computations in a __[reproducible](https://unhcr-americas.github.io/reproducibility/index.html) & auditable__ way.
 
 ### Stage 0. Prepare data & information
 ### Stage 1. Review & Process data
-### Stage 2. Question the  assumptions
+### Stage 2. Question the assumptions
 ### Stage 3. Visualize Results
  
 
 
 ???
 Depending on the pace of the group, if we do not finish today we will org anise a second session 
+https://unhcr-americas.github.io/reproducibility/index.html
+
 
 ---
 
