@@ -28,7 +28,7 @@ class: center, middle, inverse, title-slide
 # Building Humanitarian Severity Index with R, COINr &amp; Compind
 ## Ensure Statistical Rigor &amp; Robustness
 ### 
-### Last update: 2022-01-18
+### Last update: 2022-01-19
 
 ---
 
@@ -180,43 +180,6 @@ https://www.medrxiv.org/content/10.1101/2020.12.08.20246256v1.full
 
 https://qualitysafety.bmj.com/content/28/4/338 
  
-
----
-class: left, middle
-
-# Learning objectives
-
-This session is a tutorial to show you how to go through each steps required to do the calculation correctly.
-
-### Stage 0. Prepare data &amp; information
-### Stage 1. Review &amp; Process data
-### Stage 2. Question the  assumptions
-### Stage 3. Visualize Results
- 
-
-
-???
-Depending on the pace of the group, if we do not finish today we will org anise a second session 
-
----
-
-# Webinar rules
-
-&lt;i class="fa fa-spinner fa-spin fa-fw fa-2x"&gt;&lt;/i&gt; Leverage this opportunity and make this session __lively__ - there's no stupid questions!
-
-&lt;i class="fa fa-check-square fa-fw fa-2x"&gt;&lt;/i&gt; Use the __chat__ to send your questions - we are two facilitators and one is focused on replying all questions directly in the chat while the session is on-going
-
-&lt;i class="fa fa-pencil  fa-fw fa-2x"&gt;&lt;/i&gt; No need to take notes, all the session __content__ will be shared 
-
-&lt;i class="fa fa-cog fa-fw fa-2x"&gt;&lt;/i&gt; All practical exercises are designed to get you __testing the commands__:
-
-&gt; Login on a dedicated cloud-based version of RStudio with base packages pre-installed for this session @ 
-    
-&gt; Paste the command from the chat to your online Rstudio session and check what is happening
-    
-&gt; In case it is not working as expected, share screenshot or error messages from the console in the chat
-
-
 ---
 
 ## Follow the recipe
@@ -263,6 +226,72 @@ Notes - The 10 Steps are
 9. Make sense of the data - compare with other measures and concepts
 10. Visualise results and communicate key messages
 
+---
+
+## Using scripts rather than click
+
+.pull-left[
+
+Excel files are good to store information... but.... 
+
+__Clicking in Excel__ does not allow to record and document processes in a systematic way:
+ * The sequence of the data treatment
+ * The value of the data at each steps
+ * Different options in the calculation that can be compared
+ * Visualisations of the index measurement quality
+
+]
+
+
+.pull-right[
+__Scripting in R__ not only address the inherent limitation of Excel but also ensure:
+ * Full documentation in a predictable format
+ * Automatic index audit functions
+ * Quick generation of predefined visuals
+ * Easy peer review for perfect transparency
+
+]
+ 
+???
+ 
+ 
+
+---
+class: left, middle
+
+# Learning objectives
+
+This session is a tutorial to show you how to go through each steps required to do the calculation correctly.
+
+### Stage 0. Prepare data &amp; information
+### Stage 1. Review &amp; Process data
+### Stage 2. Question the  assumptions
+### Stage 3. Visualize Results
+ 
+
+
+???
+Depending on the pace of the group, if we do not finish today we will org anise a second session 
+
+---
+
+# Webinar rules
+
+&lt;i class="fa fa-spinner fa-spin fa-fw fa-2x"&gt;&lt;/i&gt; Leverage this opportunity and make this session __lively__ - there's no stupid questions!
+
+&lt;i class="fa fa-check-square fa-fw fa-2x"&gt;&lt;/i&gt; Use the __chat__ to send your questions - we are two facilitators and one is focused on replying all questions directly in the chat while the session is on-going
+
+&lt;i class="fa fa-pencil  fa-fw fa-2x"&gt;&lt;/i&gt; No need to take notes, all the session __content__ will be shared 
+
+&lt;i class="fa fa-cog fa-fw fa-2x"&gt;&lt;/i&gt; All practical exercises are designed to get you __testing the commands__:
+
+&gt; Login on a dedicated cloud-based version of RStudio with base packages pre-installed for this session @ 
+    
+&gt; Paste the command from the chat to your online Rstudio session and check what is happening
+    
+&gt; In case it is not working as expected, share screenshot or error messages from the console in the chat
+
+
 
 ---
 
@@ -284,6 +313,26 @@ Notes -
 * `.$Analysis` contains any analysis tables which are sorted by the data sets to which they are applied. This can be e.g. indicator statistics of any of the data sets found in `.$Data`, or correlations.
 * `.$Results` contains summary tables of results, arranged and sorted for easy viewing.
 
+---
+
+## The COIN Sequence
+
+All COINr functions work through a sequence:
+
+Function          |  Description
+------------------|  ---------------------------------------------
+`assemble()`      |  Assembles indicator data/metadata into a COIN
+`checkData()`     |  Data availability check and unit screening
+`denominate()`    |  Denominate (divide) indicators by other indicators
+`impute()`        |  Impute missing data using various methods
+`treat()`         |  Treat outliers with Winsorisation and transformations
+`normalise()`     |  Normalise data using various methods
+`aggregate()`     |  Aggregate indicators into hierarchical levels, up to index
+
+
+Access to various weighting approach are provided by the COMPIND package
+
+in addition, a series of plotting and dashboarding functions are available
  
 ---
 class: inverse, left, middle
@@ -402,7 +451,7 @@ The codes specified here must be unique and not coincide with any other codes us
 ## Load data and assemble
 
 .pull-left[
-To build a composite indicator,  we need three data frames, prepared and assembled in Excel according to a specific format with predefined column name
+To build a composite indicator,  we need three data frames, __prepared and assembled in Excel__ according to a specific format with predefined column name
 
 
 
@@ -427,17 +476,6 @@ ASEM &lt;- assemble(
 
 .pull-right[
 
-All COINr functions work through a sequence:
-
-Function          |  Description
-------------------|  ---------------------------------------------
-`assemble()`      |  Assembles indicator data/metadata into a COIN
-`checkData()`     |  Data availability check and unit screening
-`denominate()`    |  Denominate (divide) indicators by other indicators
-`impute()`        |  Impute missing data using various methods
-`treat()`         |  Treat outliers with Winsorisation and transformations
-`normalise()`     |  Normalise data using various methods
-`aggregate()`     |  Aggregate indicators into hierarchical levels, up to index
 
 
 ]
