@@ -1,9 +1,9 @@
 ---
-title: "Building Humanitarian Severity Index"
-subtitle: ""
+title: "Building Humanitarian Severity Index with R, COINr & Compind"
+subtitle: "Ensure Statistical Rigor & Robustness"
 author: " "
-institute: "How can we leverage R to create Indices that are statistically-sound, reproducible and auditable?"
-date: "`r Sys.Date()`"
+institute: ""
+date: "Last update: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -45,24 +45,6 @@ knitr::opts_chunk$set(cache = TRUE,
 #'UNHCR / Americas Bureau /DIMA  <br> <a href="http://github.com/unhcr-americas"><i class="fa fa-github fa-fw"></i>&nbsp; unhcr-americas</a><br> <br><br> See previous Slides available at <https://unhcr-americas.github.io/reproducibility> <br>'
 
 ```
-
-
----
-
-# Webinar rules
-
-<i class="fa fa-spinner fa-spin fa-fw fa-2x"></i> Leverage this opportunity and make this session __lively__ - there's no stupid questions!
-
-<i class="fa fa-check-square fa-fw fa-2x"></i> Use the __chat__ to send your questions - we are two facilitators and one is focused on replying all questions directly in the chat while the session is on-going
-
-<i class="fa fa-pencil  fa-fw fa-2x"></i> No need to take notes, all the session __content__ will be shared 
-
-
-
-???
- 
-
-
 
 ---
 
@@ -119,11 +101,11 @@ Notes -
 .pull-left[
 Implementing Grand Bargain Commitment, the [JIAF](https://www.jiaf.info) defines:
 
- * A list of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&reserved=0)
+ * a list of [curated indicators](https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fspreadsheets%2Fd%2F1M8Nn8cI0o-l2hbgQ9zXl5Dib8nmh3r-bQSbWtLwhXV8%2Fedit%23gid%3D0&data=04%7C01%7Clegoupil%40unhcr.org%7Cfcee88419ef346edab1908d9cf80b85f%7Ce5c37981666441348a0c6543d2af80be%7C0%7C0%7C637768975435830277%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000&sdata=3fRLybk9VHL9kEw7Zvgoi%2Fr2pTrwSK7Ib9%2BOuMf%2FdjQ%3D&reserved=0)
 
- * Guidance for the [formula](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=40)
+ * guidance for the [formula](https://www.jiaf.info/wp-content/uploads/2021/07/JIAF-1.1.pdf#page=40)
 
- * A [theoretical framework](https://www.jiaf.info/wp-content/uploads/2021/05/Technical-briefing-note-v3-May-2021-1.pdf) to define the main components of humanitarian severity
+ * a [theoretical framework](https://www.jiaf.info/wp-content/uploads/2021/05/Technical-briefing-note-v3-May-2021-1.pdf) to define the main components of humanitarian severity
 
    1. Living Standards
    2. Coping Mechanism
@@ -182,10 +164,6 @@ Conceptual and statistical flaws in the calculation of Humanitarian Severity can
 
 
 ???
-
-See JIAF Review here: 
-https://kmp.hpc.tools/attachments/b0d076c7-2f8f-4fc1-94cf-591996d56eda/JIAG_Aggregation_Methods_final%20review_v3.pptx 
-
 Composite indicators are developed to address the challenge that comes with the aggregation of heterogeneous information. They are developed to convey consistent policy messages
 Because of their very nature, composite indicators cannot be validated versus a ground truth and are always a compromise and as a result tends to create polarized audiences.
 
@@ -306,6 +284,24 @@ Depending on the pace of the group, if we do not finish today we will org anise 
 https://unhcr-americas.github.io/reproducibility/index.html
 
 
+---
+
+# Webinar rules
+
+<i class="fa fa-spinner fa-spin fa-fw fa-2x"></i> Leverage this opportunity and make this session __lively__ - there's no stupid questions!
+
+<i class="fa fa-check-square fa-fw fa-2x"></i> Use the __chat__ to send your questions - we are two facilitators and one is focused on replying all questions directly in the chat while the session is on-going
+
+<i class="fa fa-pencil  fa-fw fa-2x"></i> No need to take notes, all the session __content__ will be shared 
+
+<i class="fa fa-cog fa-fw fa-2x"></i> All practical exercises are designed to get you __testing the commands__:
+
+> Login on a dedicated cloud-based version of RStudio with base packages pre-installed for this session @ 
+    
+> Paste the command from the chat to your online Rstudio session and check what is happening
+    
+> In case it is not working as expected, share screenshot or error messages from the console in the chat
+
 
 
 ---
@@ -347,7 +343,7 @@ Function          |  Description
 
 Access to various weighting approach are provided by the COMPIND package
 
-in addition, a series of plotting and dash-boarding functions are available
+in addition, a series of plotting and dashboarding functions are available
  
 ---
 class: inverse, left, middle
@@ -473,7 +469,7 @@ To build a composite indicator,  the analysts needs to __prepare and assemble in
 
 
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, collapse=T, comment='#'}
+```{r, collapse=T, comment='#', eval=FALSE}
 library(COINr)
 library(dplyr)
 library(reactable)
@@ -481,10 +477,10 @@ library(magrittr)
 # devtools::install_github("vqv/ggbiplot")
 library(ggbiplot)
 
-ASEM <- COINr::assemble(
-  IndData = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "IndData"),
-  IndMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "IndMeta"),
-  AggMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "AggMeta") 
+ASEM <- assemble(
+  IndData = ASEMIndData,
+  IndMeta = ASEMIndMeta,
+  AggMeta = ASEMAggMeta
   )
 ``` 
 ]
@@ -493,7 +489,7 @@ ASEM <- COINr::assemble(
 .pull-right[
 
 
-```{r, echo=FALSE,   message=TRUE, warning=FALSE}
+```{r, echo=FALSE}
 
 library(COINr)
 library(dplyr)
@@ -502,10 +498,10 @@ library(magrittr)
 # devtools::install_github("vqv/ggbiplot")
 library(ggbiplot)
 
-ASEM <- COINr::assemble(
-  IndData = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "IndData"),
-  IndMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "IndMeta"),
-  AggMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "AggMeta") 
+ASEM <- assemble(
+  IndData = ASEMIndData,
+  IndMeta = ASEMIndMeta,
+  AggMeta = ASEMAggMeta
   )
 ``` 
 
@@ -559,7 +555,7 @@ Particular things of interest :
  
 ```{r , comment='#', eval=FALSE}
 # We can change thresholds for flagging outliers and high/low correlations.
-ASEM <- COINr::getStats(ASEM, dset = "Raw")
+ASEM <- getStats(ASEM, dset = "Raw")
 
 names(ASEM$Analysis$Raw$StatTable)
 
@@ -577,7 +573,7 @@ ASEM$Analysis$Raw$StatTable %>%
 Example: 
 ```{r , echo=FALSE, dev='ragg_png', dpi=300}
 # We can change thresholds for flagging outliers and high/low correlations.
-ASEM <- COINr::getStats(ASEM, dset = "Raw")
+ASEM <- getStats(ASEM, dset = "Raw")
 # view stats within a table
 stat <- ASEM$Analysis$Raw$StatTable
 
@@ -609,7 +605,7 @@ At this point you may decide to check individual indicators, and some may be add
 .left-column[
 
 ```{r ,eval=FALSE}
-ASEM <- COINr::checkData(ASEM, dset = "Raw")
+ASEM <- checkData(ASEM, dset = "Raw")
 
 #names(ASEM$Analysis$Raw$MissDatByGroup)
 ASEM$Analysis$Raw$MissDatByGroup %>%
@@ -621,7 +617,7 @@ ASEM$Analysis$Raw$MissDatByGroup %>%
 
 Example: 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ASEM <- COINr::checkData(ASEM, dset = "Raw")
+ASEM <- checkData(ASEM, dset = "Raw")
 missing <- ASEM$Analysis$Raw$MissDatByGroup 
 missing %>%
   head( 6) %>%
@@ -647,10 +643,10 @@ To be able to compare small countries with larger ones, you may need to divide i
 
 ```{r, eval=FALSE}
 # create denominated data set
-ASEM <- COINr::denominate(ASEM, dset = "Raw")
+ASEM <- denominate(ASEM, dset = "Raw")
 
 # get stats of denominated data
-ASEM <- COINr::getStats(ASEM, dset = "Denominated")
+ASEM <- getStats(ASEM, dset = "Denominated")
 
 # view stats table
 ASEM$Analysis$Raw$StatTable %>%
@@ -663,10 +659,10 @@ ASEM$Analysis$Raw$StatTable %>%
 
 ```{r, fig.width=4,  echo=FALSE, dev='ragg_png', dpi=300}
 # create denominated data set
-ASEM <- COINr::denominate(ASEM, dset = "Raw")
+ASEM <- denominate(ASEM, dset = "Raw")
 
 # get stats of denominated data
-ASEM <- COINr::getStats(ASEM, dset = "Denominated")
+ASEM <- getStats(ASEM, dset = "Denominated")
 
 # view stats table
 denom <- ASEM$Analysis$Raw$StatTable
@@ -694,7 +690,7 @@ Notes -According to the new table, there are now no high correlations with denom
 Standard approach which Winsorises each indicator up to a specified limit of points, in order to bring skew and kurtosis below specified thresholds. If Winsorisation fails, it applies a log transformation or similar.Following treatment, it is a good idea to check which indicators were treated and how:
 
 ```{r, eval=FALSE}
-ASEM <- COINr::treat(ASEM, 
+ASEM <- treat(ASEM, 
               dset = "Denominated", 
               winmax = 5)
 ASEM$Analysis$Treated$TreatSummary %>%
@@ -707,7 +703,7 @@ ASEM$Analysis$Treated$TreatSummary %>%
 .pull-right[
  
 ```{r Treat, echo=FALSE}
-ASEM <- COINr::treat(ASEM, 
+ASEM <- treat(ASEM, 
               dset = "Denominated", 
               winmax = 5)
 
@@ -748,13 +744,12 @@ COINr::iplotIndDist2(ASEM,
 ]
 .right-column[
 
-![Risk](images/treat.png) 
 
-```{r Winsorisation, fig.width=3, fig.height=3, echo=FALSE, dev='ragg_png', dpi=300}
-# COINr::iplotIndDist2(ASEM, 
-#               dsets = c("Denominated", "Treated"), 
-#               icodes = "Services", 
-#               ptype = "Scatter")
+```{r Winsorisation, fig.width=2,   echo=FALSE, dev='ragg_png', dpi=300}
+COINr::iplotIndDist2(ASEM, 
+              dsets = c("Denominated", "Treated"), 
+              icodes = "Services", 
+              ptype = "Scatter")
 ``` 
 
 ]
@@ -775,7 +770,7 @@ Notes -It is also a good idea to visualise and compare the treated data against 
 Normalisation is the operation of bringing indicators onto comparable scales so that they can be aggregated more fairly. This is done by setting `ntype`
 
 ```{r}
-ASEM <- COINr::normalise(ASEM, 
+ASEM <- normalise(ASEM, 
                   dset = "Treated", 
                   ntype = "minmax", 
                   npara = list(minmax = c(0,100)))
@@ -850,7 +845,7 @@ https://humanitarian-user-group.github.io/post/compositeindicator/
 Aggregation type can be done at multiple stage and through the  `agtype` setting
 
 ```{r}
-ASEM <- COINr::aggregate(ASEM, 
+ASEM <- aggregate(ASEM, 
                   agtype = "arith_mean", 
                   dset = "Normalised")
 
@@ -905,38 +900,43 @@ correlation structure between the underlying indicators and its effect on the ov
 
 .pull-left[
 
-To check differences, check calculations for pre-aggregated data to make sure that they are correct. If we only have normalized and aggregated data, we can still at least check the aggregation stage as follows: Assuming that the indicator columns in pre-aggregated data are normalized, we can first manually create a normalized data set: 
-
-```{r, message=FALSE}
-Aggregated_Data <- ASEM$Data$Aggregated # extract aggregated data set (as a data frame)
-
-# assemble new COIN only including pre-aggregated data
-ASEM_preagg <- COINr::assemble(IndData = Aggregated_Data,
-      IndMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "IndMeta"),
-      AggMeta = readxl::read_excel(here::here("data-raw","StandardFormat.xlsx"), sheet = "AggMeta") ,
-      preagg = TRUE)
-```
+to check differences, Check calculations for pre-aggregated data to make sure that they are correct. If you only have normalised and aggregated data, you can still at least check the aggregation stage as follows. Assuming that the indicator columns in your pre-aggregated data are normalised, we can first manually create a normalised data set: 
 ]
 
+--
 
 .pull-right[
 
-copying the pre-aggregated data, but removing any aggregation columns.
+
+```{r, message=FALSE}
+# extract aggregated data set (as a data frame)
+Aggregated_Data <- ASEM$Data$Aggregated
+
+# assemble new COIN only including pre-aggregated data
+ASEM_preagg <- assemble(IndData = Aggregated_Data,
+                        IndMeta = ASEMIndMeta,
+                        AggMeta = ASEMAggMeta,
+                        preagg = TRUE)
+```
 
 ```{r}
 ASEM_preagg$Data$Normalised <- ASEM_preagg$Data$PreAggregated %>%
   select(!ASEM$Input$AggMeta$Code)
 ```
 
-Next aggregating these columns using COINr.
+Here we have just copied the pre-aggregated data, but removed any aggregation columns.
+
+Next, we can aggregate these columns using COINr.
 
 ```{r}
-ASEM_preagg <- COINr::aggregate(ASEM_preagg, 
+ASEM_preagg <- aggregate(ASEM_preagg, 
                          dset = "Normalised", 
                          agtype = "arith_mean")
 
-# check data set names names(ASEM_preagg$Data)
+# check data set names
+names(ASEM_preagg$Data)
 ```
+
 ]
 
 ???
@@ -945,22 +945,19 @@ Notes - COINr will check that the column names in the indicator data correspond 
 
 ---
 
-## and then check whether  data frames are the same! 
+## Check whether  data frames are the same 
 
 
 
 .pull-left[
  
 
-Double-checking calculations is tedious but in the process is usefull. 
-
-If the results are *not* the same, `all_equal()` will give some information about the differences.
+Double-checking calculations is tedious but in the process you often learn a lot.  
 ]
 
+--
 
 .pull-right[
-
-Here everything is ok! :)
 
 ```{r}
 all_equal(ASEM_preagg$Data$PreAggregated,
@@ -981,12 +978,15 @@ Notes - As expected, here the results are the same. If the results are *not* the
     - Ranks and how to handle ties - see `?rank`
 3. Errors can also arise from how you entered the data. Worth re-checking all that as well.
 
+
+
 ---
+
+
 
 ## Revise internal consistency 
 
-Cronbach's alpha calculation should be done for any group of indicators (good if above 0.6 to 0.7). It measures reliability (i.e. how well a test measures what it should: measure of the stability of test scores), or internal consistency.
-
+Cronbach's alpha calculation should be done for any group of indicators 
 ```{r}
 # all indicators
 getCronbach(ASEM, dset = "Normalised")
@@ -994,8 +994,14 @@ getCronbach(ASEM, dset = "Normalised")
 # indicators in connectivity sub-index
 getCronbach(ASEM, dset = "Normalised", icodes = "Conn", aglev = 1)
 
+# indicators in sustainability sub-index
+getCronbach(ASEM, dset = "Normalised", icodes = "Sust", aglev = 1)
+
 # pillars in connectivity sub-index
 getCronbach(ASEM, dset = "Aggregated", icodes = "Conn", aglev = 2)
+
+# pillars in sustainability sub-index
+getCronbach(ASEM, dset = "Aggregated", icodes = "Sust", aglev = 2)
 ```
 ???
 
@@ -1022,6 +1028,7 @@ COINr::plotCorr(ASEM,
 ``` 
 ]
 
+--
 
 .right-column[
 
@@ -1043,20 +1050,14 @@ Sustainability dimensions are not well-correlated and are in fact slightly negat
 
 ---
 
-## COINr::rew8r(ASEM)
-
-
-
-![Risk](images/ReW8R.png) 
-
-
----
 
 ## Principle component analysis 
 
 This can be done only on data without missing value
 
 ```{r}
+
+
 # impute one
 ASEM2 <- impute(ASEM, dset = "Denominated", imtype = "indgroup_mean", groupvar = "Group_GDP")
 ASEM2 <- normalise(ASEM2, dset = "Treated", ntype = "minmax", npara = list(minmax = c(0,100)))
@@ -1068,19 +1069,24 @@ PCA_P2P <- getPCA(ASEM2, dset = "Normalised",
 
 summary(PCA_P2P$PCAresults$P2P$PCAres)
 ```
- 
+
+
+
+```{r}
+
+# ggbiplot(PCA_P2P$PCAresults$P2P$PCAres,
+#          labels = ASEM$Data$Normalised$UnitCode,
+#          groups = ASEM$Data$Normalised$Group_EurAsia)
+```
+
 
 ???
 
-)
 Notes - We can see that the first principle component explains about 50% of the variance of the indicators, which is perhaps borderline for the existence of single latent variable. That said, many composite indicators will not yield strong latent variables in many cases.
 
 We can now produce a PCA biplot using this information.
 Once again we see a fairly clear divide between Asia and Europe in terms of P2P connectivity, with exceptions of Singapore which is very well-connected. We also note the small cluster of New Zealand and Australia which have very similar characteristics in P2P connectivity.
 
-ggbiplot(PCA_P2P$PCAresults$P2P$PCAres,
-          labels = ASEM$Data$Normalised$UnitCode,
-          groups = ASEM$Data$Normalised$Group_EurAsia
 ---
 
 
@@ -1103,12 +1109,10 @@ COINr::plotframework(ASEM)
 
 .right-column[
 
-![Risk](images/frame.png) 
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+COINr::plotframework(ASEM)
 
-```{r fig.width=3, fig.height=3, echo=FALSE, dev='ragg_png', dpi=300}
-#COINr::plotframework(ASEM)
-
-# # Filter the maximum and minimum effective weights and which indicators are involved:
+# Filter the maximum and minimum effective weights and which indicators are involved:
 # IndWts <- EffWts$EffectiveWeightsList %>%
 #   filter(AgLevel == 1) %>%
 #   filter(EffectiveWeight %in% c(min(IndWts$EffectiveWeight), max(IndWts$EffectiveWeight)))
@@ -1128,9 +1132,7 @@ For example, an equally-weighted group of two indicators will each have a higher
 ---
 
 
-## What-ifs? Effect of formulation on scores & ranks 
-
-.left-column[
+## What-ifs: Effect of  formulation on scores & ranks 
 
 Examples could include different weights, as well as adding/removing/substituting indicators or entire aggregation groups
 
@@ -1151,22 +1153,14 @@ ASEM_NoPolitical$Method$aggregate$agweights <- "NoPolitical"
 
 # Regenerate
 ASEM_NoPolitical <- regen(ASEM_NoPolitical)
-# and compare
-comp <- COINr::compTable(ASEM, ASEM_NoPolitical, 
-                 dset = "Aggregated", isel = "Index",
-                 COINnames = c("Original", "NoPolitical"))
-```
-]
-
-.right-column[
-```{r , echo=FALSE}
-comp %>%
-  head( 6) %>%
-  select(head(names(comp),5))%>%
-  reactable::reactable()
 ```
 
-]
+Now we need to compare the two alternative indexes:
+
+```{r}
+COINr::compTable(ASEM, ASEM_NoPolitical, dset = "Aggregated", isel = "Index",
+          COINnames = c("Original", "NoPolitical"))
+```
 ???
 
 Notes - 
@@ -1180,109 +1174,7 @@ The results show that the rank changes are not major at the index level, with a 
 ---
 
 
-## Uncertainty analysis:  test the overall effect of assumptions
-
-.pull-left[
- 
-```{r, eval=FALSE}
-# Noise to be applied to weights
-nspecs <- data.frame(AgLevel = c(2,3), NoiseFactor = c(0.25,0.25))
-# List specifying assumptions to vary and alternatives
-SAspecs <- list(
- # impute = list(imtype = c("indgroup_mean", "ind_mean", "none")),
-  normalise = list(ntype = c("minmax", "rank", "dist2max")),
-  weights = list(NoiseSpecs = nspecs, Nominal = "Original")
-)
-UAresults <- COINr::sensitivity(ASEM, 
-  v_targ = "Index", # The target variable to perform analysis on.
-  SA_specs = SAspecs,
-  N = 10,  # number of Monte Carlo replications.
-  SA_type = "UA")# type of analysis to run
-
-COINr::plotSARanks(UAresults)
-```
- 
-]
-
-
-.pull-right[
-
-```{r fig.width=4,  echo=FALSE, dev='ragg_png', dpi=300}
-# Noise to be applied to weights
-nspecs <- data.frame(AgLevel = c(2,3), NoiseFactor = c(0.25,0.25))
-# List specifying assumptions to vary and alternatives
-SAspecs <- list(
- # impute = list(imtype = c("indgroup_mean", "ind_mean", "none")),
-  normalise = list(ntype = c("minmax", "rank", "dist2max")),
-  weights = list(NoiseSpecs = nspecs, Nominal = "Original")
-)
-UAresults <- COINr::sensitivity(ASEM, 
-  v_targ = "Index", # The target variable to perform analysis on.
-  SA_specs = SAspecs,
-  N = 10,  # number of Monte Carlo replications.
-  SA_type = "UA")# type of analysis to run
-
-COINr::plotSARanks(UAresults)
-
-```
-]
- 
-
-???
-
-Notes -  *Sensitivity analysis* can help to quantify the uncertainty in the scores and rankings of the composite indicator, and to identify which assumptions are driving this uncertainty, and which are less important.
-
-To perform an uncertainty or sensitivity analysis, one must define several things:
-
-1. The system or model (in this case it is a composite indicator, represented as a COIN)
-2. Which assumptions to treat as uncertain
-3. The alternative values or distributions assigned to each uncertain assumption
-4. Which output or outputs to target (i.e. to calculate confidence intervals for)
-5. Methodological specifications for the sensitivity analysis itself, for example the method and the number of replications to run.
-
----
-
-
-## Sensitivity analysis:  understanding the individual contributions of assumptions
-
-.pull-left[
- 
-```{r, eval=FALSE}
-# run uncertainty analysis
-SAresults <- COINr::sensitivity(ASEM,
-          v_targ = "Index", # The target variable to perform analysis on. 
-          SA_specs = SAspecs,  # A list which specifiyng perturbation 
-          N = 10,# number of Monte Carlo replications.
-          SA_type = "SA",# type of analysis to run
-          Nboot = 1000)# Number of bootstrap draws for estimates of confidence intervals
-
-# plot shows the effect of the three uncertainties that we introduced: 
-# the imputation type, the normalisation type, and the weights. 
-COINr::plotSA(SAresults, ptype = "pie")
-```
- 
-]
-
-
-
-.pull-right[
-
-```{r fig.width=4,  echo=FALSE, dev='ragg_png', dpi=300}
-# run uncertainty analysis
-SAresults <- COINr::sensitivity(ASEM,
-          v_targ = "Index", # The target variable to perform analysis on. 
-          SA_specs = SAspecs,  # A list which specifiyng perturbation 
-          N = 10,# number of Monte Carlo replications.
-          SA_type = "SA",# type of analysis to run
-          Nboot = 1000)# Number of bootstrap draws for estimates of confidence intervals
-
-# plot shows the three uncertainties that we introduced on the x-axis: the imputation type, the normalisation type, and the weights. 
-# The y-axis is the sensitivity index, and the total height of each bar is the total effect index STi, i.e. the uncertainty caused by the variable on its own (the main effect) as well as its interactions. 
-# Then each bar is divided into the interaction effects and the main effects.
-COINr::plotSA(SAresults, ptype = "pie")
-```
-]
- 
+## Sensitivity analysis:  test the overall effect of uncertainties
  
 
 ???
@@ -1303,16 +1195,81 @@ class: inverse, left, middle
 
 # Stage 3. Visualize Results
 
+* Index
+* SubDimensions
+* Maps
 * Summary
 * Export
-* Index
-* Sub Dimensions
-* Maps
 
 
 ---
 
-## Present summary table: getResults
+## Index & Sub Dimensions
+
+
+```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
+COINr::iplotBar(ASEM, dset = "Aggregated", 
+         isel = "Index", 
+         aglev = 4, 
+         stack_children = T)
+```
+
+ 
+???
+
+Notes -
+
+---
+
+
+## Sub Indices Interactions
+
+
+```{r fig.width=8, fig.asp = 0.8,   echo=TRUE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
+COINr::iplotIndDist2(ASEM, 
+              dsets = "Aggregated", 
+              icodes = "Index")
+```
+
+ 
+ 
+ 
+
+???
+
+Notes -
+
+---
+
+
+## Display the index on a Map
+
+```{r fig.width=8, fig.asp = 0.8,   echo=TRUE, dev='ragg_png', dpi=300}
+options(htmltools.dir.version = FALSE, 
+        htmltools.preserve.raw = FALSE,
+        tibble.width = 60)
+COINr::iplotMap(ASEM, 
+                dset = "Aggregated", 
+                isel = "Conn")
+```
+
+ 
+ 
+
+???
+
+Notes -
+
+---
+
+
+## Present summary table.
 
 ```{r}
 COINr::getResults(ASEM, tab_type = "Summary") %>%
@@ -1328,7 +1285,7 @@ Notes -
 ---
 
 
-## Export Results: coin2Excel
+## Export Results
 
 Get tables to present (the highest levels of aggregation are the first columns, rather than the last, and it is sorted by index score).
 
@@ -1345,100 +1302,13 @@ COINr::coin2Excel(ASEM, "ASEM_results.xlsx")
 Notes -
 
 ---
-
-## Index & Sub Dimensions: iplotBar
-
-
-```{r fig.width=3,  echo=FALSE, dev='ragg_png', dpi=300}
-# options(htmltools.dir.version = FALSE, 
-#         htmltools.preserve.raw = FALSE,
-#         tibble.width = 60)
-# COINr::iplotBar(ASEM, dset = "Aggregated", 
-#          isel = "Index", 
-#          aglev = 4, 
-#          stack_children = T)
-```
-![Risk](images/sub.png) 
- 
-???
-
-Notes -
-
----
-
-
-## Interactions between Sub Indices: iplotIndDist2 
-
-```{r fig.width=3,  fig.asp = 0.8, echo=FALSE, dev='ragg_png', dpi=300}
-# options(htmltools.dir.version = FALSE, 
-#         htmltools.preserve.raw = FALSE,
-#         tibble.width = 60)
-# COINr::iplotIndDist2(ASEM, 
-#               dsets = "Aggregated", 
-#               icodes = "Index")
-```
-
-![Risk](images/inter.png) 
- 
-
-???
-
-Notes -
-
----
-
-
-## Display the index on a Map: iplotMap
-
-```{r fig.width=3, fig.asp = 0.8, echo=FALSE, dev='ragg_png', dpi=300}
-# options(htmltools.dir.version = FALSE, 
-#         htmltools.preserve.raw = FALSE,
-#         tibble.width = 60)
-# COINr::iplotMap(ASEM, 
-#                 dset = "Aggregated", 
-#                 isel = "Conn")
-```
-
-![Risk](images/map.png) 
-
- 
- 
-
-???
-
-Notes 
-
----
-
-
-## COINr::resultsDash(ASEM, dset = "Aggregated")
-
-
-
-![Risk](images/result.png) 
-
----
-
 class: inverse, left, middle
 
-# Test Case → Putting this in practice!
+# Conclusion. Reproducibility to ensure transparency
 
-Applying this workflow to field example: what do we get?
-
- * Protection Severity Venezuela
+ * Strictly Use "curated & published" data for your sub-indicators - Data should be available on Humanitarian Data eXchange @ data.humdata.org
  
- * Protection Severity Colombia
-
-
----
-
-class: inverse, left, middle
-
-# Conclusion → Reproducibility to ensure Transparency
-
-<i class="fa fa-check-square fa-fw fa-2x"></i> __TAKEAWAY #1__: Strictly Use "_curated & published_" data for your sub-indicators - Data should be available on Humanitarian Data eXchange (data.humdata.org)
+ * Document your process with R Code & put it into Github - The data structure required for the packages allows for better discoverability!
  
-<i class="fa fa-check-square fa-fw fa-2x"></i> __TAKEAWAY #2__: Use CoinR Indicator documentation structure in Excel (_IndData, IndMeta, AggMeta_) - This allows for better discoverability!
- 
-<i class="fa fa-check-square fa-fw fa-2x"></i> __TAKEAWAY #3__: Cover yourself for audit, i.e. Document your process with R Code & put it into Github - and/or Call for support / peer review! When using scripted analysis, this become very quick!!!
+ * Call for peer and/or independent review to cover yourself! when using scripted reproducible analysis, this should be very quick!!!
 
